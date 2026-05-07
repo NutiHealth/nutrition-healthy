@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriDélices - Recettes & Nutrition</title>
+    <style>
+        /* --- DESIGN GÉNÉRAL --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- BARRE DE NAVIGATION (ONGLETS) --- */
+        nav {
+            background-color: #388e3c;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        /* --- CONTENU PRINCIPAL --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .hero {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* --- GRILLE DES RECETTES --- */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-image {
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #666;
+        }
+
+        .recipe-content {
+            padding: 1.5rem;
+        }
+
+        /* --- STYLE NUTRI-SCORE --- */
+        .nutriscore {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .score-a { background-color: #008b4c; }
+        .score-b { background-color: #85bb2f; }
+        .score-c { background-color: #fecb02; }
+
+        .details-list {
+            font-size: 0.9rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .details-list li {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NutriDélices</h1>
+        <p>Mangez mieux, vivez mieux avec nos analyses détaillées</p>
+    </header>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#petit-dej">Petit-Déjeuner</a>
+        <a href="#plats">Plats Résistants</a>
+        <a href="#desserts">Desserts Healthy</a>
+        <a href="#guide">Guide Nutrition</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h2>Bienvenue sur votre portail nutrition</h2>
+            <p>Découvrez des centaines de recettes avec une transparence totale sur les apports nutritionnels.</p>
+        </section>
+
+        <h2 id="plats">Nos Recettes à la une</h2>
+        
+        <div class="recipe-grid">
+            <!-- Recette 1 -->
+            <article class="recipe-card">
+                <div class="recipe-image">Image : Salade de Quinoa Bio</div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-a">Nutri-Score A</span>
+                    <h3>Salade de Quinoa aux Avocats</h3>
+                    <p>Une recette fraîche, riche en fibres et en bons lipides.</p>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>345 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>12g</strong></li>
+                        <li><span>Lipides</span> <strong>18g</strong></li>
+                        <li><span>Glucides</span> <strong>42g</strong></li>
+                    </ul>
+                    <button style="width:100%; padding: 10px; margin-top:10px; cursor:pointer;">Voir la recette complète</button>
+                </div>
+            </article>
+
+            <!-- Recette 2 -->
+            <article class="recipe-card">
+                <div class="recipe-image">Image : Poulet Curry Coco</div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-b">Nutri-Score B</span>
+                    <h3>Poulet au Curry et Lait de Coco</h3>
+                    <p>Le classique réconfortant avec un équilibre nutritionnel maîtrisé.</p>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>510 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>35g</strong></li>
+                        <li><span>Lipides</span> <strong>22g</strong></li>
+                        <li><span>Glucides</span> <strong>15g</strong></li>
+                    </ul>
+                    <button style="width:100%; padding: 10px; margin-top:10px; cursor:pointer;">Voir la recette complète</button>
+                </div>
+            </article>
+
+            <!-- Recette 3 -->
+            <article class="recipe-card">
+                <div class="recipe-image">Image : Bowl de Fruits</div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-a">Nutri-Score A</span>
+                    <h3>Smoothie Bowl Énergie</h3>
+                    <p>Faites le plein de vitamines dès le matin avec des fruits frais.</p>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>280 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>8g</strong></li>
+                        <li><span>Lipides</span> <strong>6g</strong></li>
+                        <li><span>Glucides</span> <strong>52g</strong></li>
+                    </ul>
+                    <button style="width:100%; padding: 10px; margin-top:10px; cursor:pointer;">Voir la recette complète</button>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NutriDélices - Informations basées sur les standards nutritionnels officiels.</p>
+    </footer>
+
+</body>
+</html>
