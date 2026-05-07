@@ -1,1 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Guide du Petit-Déjeuner Équilibré</title>
+    <style>
+        :root {
+            --primary: #f39c12;
+            --secondary: #27ae60;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-149485981460c-3810c30579c7?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: -50px auto 50px;
+            padding: 20px;
+        }
+
+        .breakfast-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .breakfast-card { flex-direction: row; }
+            .card-image { width: 40%; }
+            .card-content { width: 60%; }
+        }
+
+        .card-image {
+            background-size: cover;
+            background-position: center;
+            min-height: 250px;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        h2 { color: var(--primary); margin-top: 0; }
+
+        .nutriscore {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .score-a { background-color: #008b4c; }
+        .score-b { background-color: #85bb2f; }
+
+        .nutrition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+
+        .nutrition-table th, .nutrition-table td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recipe-list {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: var(--dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Commencez la journée du bon pied</h1>
+    <p>Découvrez nos recettes saines, gourmandes et analysées nutritionnellement.</p>
+</header>
+
+<div class="container">
+
+    <!-- Recette 1 -->
+    <div class="breakfast-card">
+        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="card-content">
+            <div class="nutriscore score-a">Nutri-Score A</div>
+            <h2>Porridge Crémeux aux Myrtilles</h2>
+            <p>Un classique indémodable, riche en fibres pour une satiété longue durée.</p>
+            
+            <h3>Ingrédients :</h3>
+            <ul class="recipe-list">
+                <li>40g de flocons d'avoine complets</li>
+                <li>200ml de lait d'amande sans sucre</li>
+                <li>Une poignée de myrtilles fraîches</li>
+                <li>1 c.à.c de graines de chia</li>
+            </ul>
+
+            <h3>Valeurs Nutritionnelles (pour 1 portion) :</h3>
+            <table class="nutrition-table">
+                <tr><th>Calories</th><td>285 kcal</td></tr>
+                <tr><th>Protéines</th><td>9g</td></tr>
+                <tr><th>Glucides</th><td>42g (dont sucres 6g)</td></tr>
+                <tr><th>Lipides</th><td>7g</td></tr>
+                <tr><th>Fibres</th><td>11g</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Recette 2 -->
+    <div class="breakfast-card">
+        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="card-content">
+            <div class="nutriscore score-a">Nutri-Score A</div>
+            <h2>Avocado Toast & Œuf Poché</h2>
+            <p>Le plein de bons lipides et de protéines pour les matins actifs.</p>
+            
+            <h3>Ingrédients :</h3>
+            <ul class="recipe-list">
+                <li>1 tranche de pain de seigle intégral</li>
+                <li>1/2 avocat mûr</li>
+                <li>1 œuf bio (poché ou mollet)</li>
+                <li>Piment d'Espelette, sel, citron</li>
+            </ul>
+
+            <h3>Valeurs Nutritionnelles :</h3>
+            <table class="nutrition-table">
+                <tr><th>Calories</th><td>340 kcal</td></tr>
+                <tr><th>Protéines</th><td>14g</td></tr>
+                <tr><th>Glucides</th><td>28g</td></tr>
+                <tr><th>Lipides</th><td>19g (Oméga 9)</td></tr>
+                <tr><th>Fibres</th><td>9g</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- Recette 3 -->
+    <div class="breakfast-card">
+        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80')"></div>
+        <div class="card-content">
+            <div class="nutriscore score-b">Nutri-Score B</div>
+            <h2>Bowl Cake Chocolat-Banane</h2>
+            <p>Pour les envies de gâteau dès le réveil, sans culpabilité.</p>
+            
+            <h3>Ingrédients :</h3>
+            <ul class="recipe-list">
+                <li>1 banane écrasée</li>
+                <li>1 œuf</li>
+                <li>3 c.à.s de son d'avoine</li>
+                <li>1 carré de chocolat noir 70% concassé</li>
+            </ul>
+
+            <h3>Valeurs Nutritionnelles :</h3>
+            <table class="nutrition-table">
+                <tr><th>Calories</th><td>310 kcal</td></tr>
+                <tr><th>Protéines</th><td>12g</td></tr>
+                <tr><th>Glucides</th><td>38g</td></tr>
+                <tr><th>Lipides</th><td>11g</td></tr>
+                <tr><th>Magnésium</th><td>Haute teneur</td></tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Mon Site Petit-Déjeuner - Mangez mieux, vivez mieux.</p>
+</footer>
+
+</body>
+</html>
