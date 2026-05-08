@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriDélices - Accueil</title>
     <style>
-        /* --- DESIGN GÉNÉRAL (Identique à tes autres pages) --- */
+        /* --- DESIGN GÉNÉRAL --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f7f6;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
             background: linear-gradient(135deg, #2e7d32, #45a049);
             color: white;
-            padding: 2rem;
+            padding: 2.5rem 1rem;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -55,11 +56,13 @@
             border-radius: 15px;
             text-align: center;
             margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
+        /* --- GRILLE DES RECETTES --- */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -68,59 +71,94 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .recipe-card:hover { transform: translateY(-5px); }
+        .recipe-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
 
         .recipe-image {
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 220px;
             overflow: hidden;
         }
 
-        /* Ajout uniquement de la règle d'affichage pour l'image */
         .recipe-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .recipe-content { padding: 1.5rem; }
+        .recipe-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
 
+        /* --- NUTRI-SCORE --- */
         .nutriscore {
             display: inline-block;
-            padding: 5px 10px;
+            padding: 5px 12px;
             border-radius: 5px;
             font-weight: bold;
             margin-bottom: 1rem;
             color: white;
+            width: fit-content;
         }
 
         .score-a { background-color: #008b4c; }
         .score-b { background-color: #85bb2f; }
 
+        /* --- LISTES DÉTAILLÉES --- */
+        .ingredients-list {
+            font-size: 0.9rem;
+            padding-left: 20px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .details-list {
+            font-size: 0.9rem;
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .details-list li {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        /* --- BOUTONS --- */
         button {
             width: 100%;
             padding: 12px;
-            margin-top: 10px;
+            margin-top: auto;
             cursor: pointer;
             border: none;
             background-color: #2e7d32;
             color: white;
             font-weight: bold;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             background: #333;
             color: white;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
@@ -142,7 +180,7 @@
     <div class="container">
         <section class="hero">
             <h2>Bienvenue sur l'Accueil</h2>
-            <p>Sélectionnez une catégorie dans le menu pour commencer.</p>
+            <p>Découvrez nos recettes phares analysées pour votre santé.</p>
         </section>
 
         <h2>Recettes à la une</h2>
@@ -155,7 +193,19 @@
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Salade de Quinoa</h3>
-                    <button>Voir la recette</button>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Quinoa rouge et blanc</li>
+                        <li>Avocat et Tomates cerises</li>
+                        <li>Vinaigrette au citron</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>320 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>12g</strong></li>
+                        <li><span>Lipides</span> <strong>14g</strong></li>
+                        <li><span>Glucides</span> <strong>38g</strong></li>
+                    </ul>
+                    <button>Voir la recette complète</button>
                 </div>
             </article>
 
@@ -167,7 +217,19 @@
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Saumon aux Légumes</h3>
-                    <button>Voir la recette</button>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Pavé de saumon frais</li>
+                        <li>Asperges de saison</li>
+                        <li>Zeste de citron bio</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>410 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>28g</strong></li>
+                        <li><span>Lipides</span> <strong>22g</strong></li>
+                        <li><span>Glucides</span> <strong>8g</strong></li>
+                    </ul>
+                    <button>Voir la recette complète</button>
                 </div>
             </article>
 
@@ -179,14 +241,26 @@
                 <div class="recipe-content">
                     <span class="nutriscore score-b">Nutri-Score B</span>
                     <h3>Bowl de Poulet Grillé</h3>
-                    <button>Voir la recette</button>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Blanc de poulet mariné</li>
+                        <li>Riz complet bio</li>
+                        <li>Brocolis vapeur</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>450 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>35g</strong></li>
+                        <li><span>Lipides</span> <strong>12g</strong></li>
+                        <li><span>Glucides</span> <strong>50g</strong></li>
+                    </ul>
+                    <button>Voir la recette complète</button>
                 </div>
             </article>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 NutriDélices</p>
+        <p>&copy; 2026 NutriDélices - Informations nutritionnelles certifiées.</p>
     </footer>
 
 </body>
