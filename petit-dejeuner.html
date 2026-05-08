@@ -5,19 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Petit-Déjeuner - NutriDélices</title>
     <style>
-        /* --- DESIGN GÉNÉRAL (Identique à l'accueil) --- */
+        /* --- DESIGN GÉNÉRAL --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f7f6;
             color: #333;
+            line-height: 1.6;
         }
 
         header {
-            background-color: #2e7d32;
+            background: linear-gradient(135deg, #2e7d32, #45a049);
             color: white;
-            padding: 2rem;
+            padding: 3rem 1rem;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
@@ -57,12 +58,13 @@
             border-radius: 15px;
             text-align: center;
             margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         /* --- GRILLE DES RECETTES --- */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
 
@@ -71,42 +73,45 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .recipe-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .recipe-image {
-            height: 200px;
+            height: 220px;
             background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #666;
             background-size: cover;
             background-position: center;
         }
 
         .recipe-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         /* --- STYLE NUTRI-SCORE --- */
         .nutriscore {
             display: inline-block;
-            padding: 5px 10px;
+            padding: 5px 12px;
             border-radius: 5px;
             font-weight: bold;
             margin-bottom: 1rem;
             color: white;
+            width: fit-content;
         }
 
         .score-a { background-color: #008b4c; }
         .score-b { background-color: #85bb2f; }
 
+        /* --- LISTES --- */
         .details-list {
             font-size: 0.9rem;
             list-style: none;
@@ -115,7 +120,7 @@
         }
 
         .details-list li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             border-bottom: 1px dotted #ccc;
@@ -128,24 +133,30 @@
             color: #555;
         }
 
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #333;
-            color: white;
-            margin-top: 3rem;
-        }
-
+        /* --- BOUTONS --- */
         button {
-            width:100%; 
-            padding: 10px; 
-            margin-top:10px; 
-            cursor:pointer;
+            width: 100%;
+            padding: 12px;
+            margin-top: auto; /* Pousse le bouton en bas de la carte */
+            cursor: pointer;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             background-color: #2e7d32;
             color: white;
             font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: #333;
+            color: white;
+            margin-top: 4rem;
         }
     </style>
 </head>
@@ -173,9 +184,7 @@
         <div class="recipe-grid">
             <!-- Recette 1 -->
             <article class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=800&q=80')">
-                    <!-- Image chargée en fond -->
-                </div>
+                <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1517673400267-0251440c45dc?auto=format&fit=crop&w=800&q=80')"></div>
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Porridge aux Myrtilles</h3>
@@ -200,9 +209,7 @@
 
             <!-- Recette 2 -->
             <article class="recipe-card">
-                <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80')">
-                    <!-- Image chargée en fond -->
-                </div>
+                <div class="recipe-image" style="background-image: url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80')"></div>
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Avocado Toast & Œuf</h3>
