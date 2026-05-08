@@ -68,17 +68,13 @@
             transform: translateY(-5px);
         }
 
+        /* Style de l'image pour qu'elle remplisse bien son espace */
         .recipe-image {
-            height: 200px;
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
             background-color: #e8f5e9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-style: italic;
-            color: #2e7d32;
-            font-weight: bold;
-            object-fit: cover; /* Ajout recommandé pour que l'image ne se déforme pas */
-            width: 100%; /* S'assure que l'image prend toute la largeur de la carte */
         }
 
         .recipe-content {
@@ -97,12 +93,12 @@
 
         .score-a { background-color: #008b4c; }
         .score-b { background-color: #85bb2f; }
-        .score-c { background-color: #fecb02; }
 
         .details-list {
             font-size: 0.9rem;
             list-style: none;
             padding: 0;
+            margin: 15px 0;
         }
 
         .details-list li {
@@ -110,6 +106,23 @@
             display: flex;
             justify-content: space-between;
             border-bottom: 1px dotted #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2e7d32;
+            color: white;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
         }
 
         footer {
@@ -131,7 +144,7 @@
     <nav>
         <a href="index.html">Accueil</a>
         <a href="petit-dejeuner.html">Petit déjeuner</a>
-        <a href="plats-resistants.html" style="background-color: #2e7d32;">Plats Résistants</a>
+        <a href="plats-resistants.html" style="background-color: #1b5e20;">Plats Résistants</a>
         <a href="desserts.html">Desserts Healthy</a>
         <a href="guide.html">Guide Nutrition</a>
     </nav>
@@ -141,8 +154,7 @@
         <div class="recipe-grid">
             <!-- Plat 1 -->
             <article class="recipe-card">
-                <!-- Remplacement de la div par une balise img -->
-                <img src="images/saumon.jpg" alt="Pavé de Saumon Grillé & Riz Noir" class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Saumon Grillé" class="recipe-image">
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Saumon Grillé aux Asperges</h3>
@@ -153,14 +165,13 @@
                         <li><span>Lipides</span> <strong>14g</strong></li>
                         <li><span>Glucides</span> <strong>35g</strong></li>
                     </ul>
-                    <button style="width:100%; padding: 10px; margin-top:10px; cursor:pointer;">Voir la recette complète</button>
+                    <button>Voir la recette complète</button>
                 </div>
             </article>
 
             <!-- Plat 2 -->
             <article class="recipe-card">
-                <!-- Remplacement de la div par une balise img -->
-                <img src="images/lasagnes.jpg" alt="Lasagnes Végétariennes aux Légumes du Soleil" class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Lasagnes Végétariennes" class="recipe-image">
                 <div class="recipe-content">
                     <span class="nutriscore score-b">Nutri-Score B</span>
                     <h3>Lasagnes aux Légumes du Soleil</h3>
@@ -171,14 +182,13 @@
                         <li><span>Lipides</span> <strong>12g</strong></li>
                         <li><span>Glucides</span> <strong>48g</strong></li>
                     </ul>
-                    <button style="width:100%; padding: 10px; margin-top:10px; cursor:pointer;">Voir la recette complète</button>
+                    <button>Voir la recette complète</button>
                 </div>
             </article>
 
             <!-- Plat 3 -->
             <article class="recipe-card">
-                <!-- Remplacement de la div par une balise img -->
-                <img src="images/dahl.jpg" alt="Dahl Indien de Lentilles Corail" class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1545093149-618ce3bcf49d?auto=format&fit=crop&w=800&q=80" alt="Dahl de lentilles" class="recipe-image">
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Dahl Indien Épicé</h3>
@@ -189,14 +199,14 @@
                         <li><span>Lipides</span> <strong>5g</strong></li>
                         <li><span>Glucides</span> <strong>42g</strong></li>
                     </ul>
-                    <button style="width:100%; padding: 10px; margin-top:10px; cursor:pointer;">Voir la recette complète</button>
+                    <button>Voir la recette complète</button>
                 </div>
             </article>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 NutriDélices - Vos plats de résistance sains et savoureux.</p>
+        <p>&copy; 2026 NutriDélices - Vos plats de résistance sains et savoureux.</p>
     </footer>
 
 </body>
