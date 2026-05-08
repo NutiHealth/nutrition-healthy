@@ -152,22 +152,36 @@
     <div class="container">
         
         <div class="recipe-grid">
-            <!-- Plat 1 -->
-            <article class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Saumon Grillé" class="recipe-image">
-                <div class="recipe-content">
-                    <span class="nutriscore score-a">Nutri-Score A</span>
-                    <h3>Saumon Grillé aux Asperges</h3>
-                    <p>Riche en Oméga-3, accompagné de riz noir complet et asperges croquantes.</p>
-                    <ul class="details-list">
-                        <li><span>Calories</span> <strong>420 kcal</strong></li>
-                        <li><span>Protéines</span> <strong>28g</strong></li>
-                        <li><span>Lipides</span> <strong>14g</strong></li>
-                        <li><span>Glucides</span> <strong>35g</strong></li>
-                    </ul>
-                    <button>Voir la recette complète</button>
-                </div>
-            </article>
+           <!-- Plat 1 -->
+<article class="recipe-card">
+    <div class="recipe-image-container" style="position: relative; overflow: hidden;"> <!-- Conteneur pour le badge -->
+        
+        <!-- BADGE DE TEMPS -->
+        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10;">
+            🕒 25 min
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Saumon Grillé" class="recipe-image" style="width: 100%; display: block;">
+    </div>
+
+    <div class="recipe-content">
+        <span class="nutriscore score-a">Nutri-Score A</span>
+        <h3>Saumon Grillé aux Asperges</h3>
+        <p>Riche en Oméga-3, accompagné de riz noir complet et asperges croquantes.</p>
+        
+        <ul class="details-list">
+            <li><span>Calories</span> <strong>420 kcal</strong></li>
+            <li><span>Protéines</span> <strong>28g</strong></li>
+            <li><span>Lipides</span> <strong>14g</strong></li>
+            <li><span>Glucides</span> <strong>35g</strong></li>
+            
+            <!-- AJOUT DU PRIX -->
+            <li><span>Budget estimé</span> <strong>5,80 €</strong></li>
+        </ul>
+        
+        <button>Voir la recette complète</button>
+    </div>
+</article>
 
             <!-- Plat 2 -->
             <article class="recipe-card">
