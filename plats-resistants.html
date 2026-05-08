@@ -77,6 +77,8 @@
             font-style: italic;
             color: #2e7d32;
             font-weight: bold;
+            object-fit: cover; /* Ajout recommandé pour que l'image ne se déforme pas */
+            width: 100%; /* S'assure que l'image prend toute la largeur de la carte */
         }
 
         .recipe-content {
@@ -139,7 +141,8 @@
         <div class="recipe-grid">
             <!-- Plat 1 -->
             <article class="recipe-card">
-                <div class="recipe-image">Pavé de Saumon & Riz Noir</div>
+                <!-- Remplacement de la div par une balise img -->
+                <img src="images/saumon.jpg" alt="Pavé de Saumon Grillé & Riz Noir" class="recipe-image">
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Saumon Grillé aux Asperges</h3>
@@ -156,7 +159,8 @@
 
             <!-- Plat 2 -->
             <article class="recipe-card">
-                <div class="recipe-image">Lasagnes Végétariennes</div>
+                <!-- Remplacement de la div par une balise img -->
+                <img src="images/lasagnes.jpg" alt="Lasagnes Végétariennes aux Légumes du Soleil" class="recipe-image">
                 <div class="recipe-content">
                     <span class="nutriscore score-b">Nutri-Score B</span>
                     <h3>Lasagnes aux Légumes du Soleil</h3>
@@ -173,7 +177,8 @@
 
             <!-- Plat 3 -->
             <article class="recipe-card">
-                <div class="recipe-image">Dahl de Lentilles Corail</div>
+                <!-- Remplacement de la div par une balise img -->
+                <img src="images/dahl.jpg" alt="Dahl Indien de Lentilles Corail" class="recipe-image">
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Dahl Indien Épicé</h3>
