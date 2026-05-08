@@ -4,99 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Guide du Petit-Déjeuner Équilibré</title>
+    <!-- Importation d'une police plus moderne -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #f39c12;
             --secondary: #27ae60;
-            --dark: #2c3e50;
-            --light: #ecf0f1;
+            --dark: #1a252f;
+            --light: #f8f9fa;
+            --shadow: 0 15px 35px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
             color: var(--dark);
             margin: 0;
-            background-color: #f9f9f9;
+            background-color: #f0f2f5;
         }
 
+        /* Header avec un effet de superposition plus élégant */
         header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-149485981460c-3810c30579c7?auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-149485981460c-3810c30579c7?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Effet parallaxe léger */
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .container {
-            max-width: 1000px;
-            margin: -50px auto 50px;
-            padding: 20px;
+            max-width: 1100px;
+            margin: -60px auto 60px;
+            padding: 0 20px;
         }
 
+        /* Style des cartes amélioré */
         .breakfast-card {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 50px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        @media (min-width: 768px) {
-            .breakfast-card { flex-direction: row; }
-            .card-image { width: 40%; }
-            .card-content { width: 60%; }
+        .breakfast-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        @media (min-width: 850px) {
+            .breakfast-card { flex-direction: row; min-height: 450px; }
+            .card-image { width: 45%; }
+            .card-content { width: 55%; padding: 40px; }
         }
 
         .card-image {
             background-size: cover;
             background-position: center;
-            min-height: 250px;
+            min-height: 300px;
+            position: relative;
         }
 
         .card-content {
             padding: 30px;
         }
 
-        h2 { color: var(--primary); margin-top: 0; }
-
-        .nutriscore {
-            display: inline-block;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            color: white;
+        h2 { 
+            color: var(--dark); 
+            font-size: 1.8rem;
+            margin-top: 0; 
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
-        .score-a { background-color: #008b4c; }
-        .score-b { background-color: #85bb2f; }
+        h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 25px;
+        }
+
+        /* Nutriscore plus stylisé */
+        .nutriscore {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .score-a { background: linear-gradient(135deg, #008b4c, #27ae60); }
+        .score-b { background: linear-gradient(135deg, #85bb2f, #a2d149); }
 
         .nutrition-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.9em;
+            margin: 20px 0;
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .nutrition-table th, .nutrition-table td {
             text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #eee;
+            padding: 12px 15px;
+        }
+
+        .nutrition-table tr:not(:last-child) {
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nutrition-table th {
+            color: #7f8c8d;
+            font-weight: 400;
+        }
+
+        .nutrition-table td {
+            font-weight: 600;
+            text-align: right;
         }
 
         .recipe-list {
             padding-left: 20px;
+            color: #576574;
+        }
+
+        .recipe-list li {
+            margin-bottom: 8px;
         }
 
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 60px 20px;
             background: var(--dark);
             color: white;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -117,7 +188,7 @@
             <h2>Porridge Crémeux aux Myrtilles</h2>
             <p>Un classique indémodable, riche en fibres pour une satiété longue durée.</p>
             
-            <h3>Ingrédients :</h3>
+            <h3>Ingrédients</h3>
             <ul class="recipe-list">
                 <li>40g de flocons d'avoine complets</li>
                 <li>200ml de lait d'amande sans sucre</li>
@@ -125,13 +196,12 @@
                 <li>1 c.à.c de graines de chia</li>
             </ul>
 
-            <h3>Valeurs Nutritionnelles (pour 1 portion) :</h3>
+            <h3>Valeurs Nutritionnelles</h3>
             <table class="nutrition-table">
                 <tr><th>Calories</th><td>285 kcal</td></tr>
                 <tr><th>Protéines</th><td>9g</td></tr>
-                <tr><th>Glucides</th><td>42g (dont sucres 6g)</td></tr>
+                <tr><th>Glucides</th><td>42g</td></tr>
                 <tr><th>Lipides</th><td>7g</td></tr>
-                <tr><th>Fibres</th><td>11g</td></tr>
             </table>
         </div>
     </div>
@@ -144,48 +214,20 @@
             <h2>Avocado Toast & Œuf Poché</h2>
             <p>Le plein de bons lipides et de protéines pour les matins actifs.</p>
             
-            <h3>Ingrédients :</h3>
+            <h3>Ingrédients</h3>
             <ul class="recipe-list">
                 <li>1 tranche de pain de seigle intégral</li>
                 <li>1/2 avocat mûr</li>
                 <li>1 œuf bio (poché ou mollet)</li>
-                <li>Piment d'Espelette, sel, citron</li>
+                <li>Piment d'Espelette, citron</li>
             </ul>
 
-            <h3>Valeurs Nutritionnelles :</h3>
+            <h3>Valeurs Nutritionnelles</h3>
             <table class="nutrition-table">
                 <tr><th>Calories</th><td>340 kcal</td></tr>
                 <tr><th>Protéines</th><td>14g</td></tr>
                 <tr><th>Glucides</th><td>28g</td></tr>
-                <tr><th>Lipides</th><td>19g (Oméga 9)</td></tr>
-                <tr><th>Fibres</th><td>9g</td></tr>
-            </table>
-        </div>
-    </div>
-
-    <!-- Recette 3 -->
-    <div class="breakfast-card">
-        <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80')"></div>
-        <div class="card-content">
-            <div class="nutriscore score-b">Nutri-Score B</div>
-            <h2>Bowl Cake Chocolat-Banane</h2>
-            <p>Pour les envies de gâteau dès le réveil, sans culpabilité.</p>
-            
-            <h3>Ingrédients :</h3>
-            <ul class="recipe-list">
-                <li>1 banane écrasée</li>
-                <li>1 œuf</li>
-                <li>3 c.à.s de son d'avoine</li>
-                <li>1 carré de chocolat noir 70% concassé</li>
-            </ul>
-
-            <h3>Valeurs Nutritionnelles :</h3>
-            <table class="nutrition-table">
-                <tr><th>Calories</th><td>310 kcal</td></tr>
-                <tr><th>Protéines</th><td>12g</td></tr>
-                <tr><th>Glucides</th><td>38g</td></tr>
-                <tr><th>Lipides</th><td>11g</td></tr>
-                <tr><th>Magnésium</th><td>Haute teneur</td></tr>
+                <tr><th>Lipides</th><td>19g</td></tr>
             </table>
         </div>
     </div>
@@ -193,7 +235,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 Mon Site Petit-Déjeuner - Mangez mieux, vivez mieux.</p>
+    <p>&copy; 2026 Mon Guide Petit-Déjeuner — Fait avec passion pour votre santé.</p>
 </footer>
 
 </body>
