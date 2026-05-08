@@ -185,30 +185,43 @@
 
         <h2>Recettes à la une</h2>
         <div class="recipe-grid">
-            <!-- Plat 1 -->
-            <article class="recipe-card">
-                <div class="recipe-image">
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Salade de Quinoa">
-                </div>
-                <div class="recipe-content">
-                    <span class="nutriscore score-a">Nutri-Score A</span>
-                    <h3>Salade de Quinoa</h3>
-                    <p><strong>Ingrédients :</strong></p>
-                    <ul class="ingredients-list">
-                        <li>70g Quinoa rouge et blanc</li>
-                        <li>1 Avocat, Tomates cerises 1 concombre</li>
-                        <li>200g pois chiches cuits</li>
-                        <li>persil ou menthe fraîche</li>
-                        <li>graines de courge</li>
-                    </ul>
-                    <ul class="details-list">
-                        <li><span>Calories</span> <strong>614 kcal</strong></li>
-                        <li><span>Protéines</span> <strong>24g</strong></li>
-                        <li><span>Lipides</span> <strong>22,3g</strong></li>
-                        <li><span>Glucides</span> <strong>80,5g</strong></li>
-                    </ul>
-                </div>
-            </article>
+            
+        <!-- Plat 1 -->
+<article class="recipe-card">
+    <div class="recipe-image" style="position: relative;"> <!-- Ajout de la position relative -->
+        
+        <!-- BADGE DE TEMPS -->
+        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            🕒 20 min
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Salade de Quinoa">
+    </div>
+
+    <div class="recipe-content">
+        <span class="nutriscore score-a">Nutri-Score A</span>
+        <h3>Salade de Quinoa</h3>
+        
+        <p><strong>Ingrédients :</strong></p>
+        <ul class="ingredients-list">
+            <li>70g Quinoa rouge et blanc</li>
+            <li>1 Avocat, Tomates cerises 1 concombre</li>
+            <li>200g pois chiches cuits</li>
+            <li>persil ou menthe fraîche</li>
+            <li>graines de courge</li>
+        </ul>
+
+        <ul class="details-list">
+            <li><span>Calories</span> <strong>614 kcal</strong></li>
+            <li><span>Protéines</span> <strong>24g</strong></li>
+            <li><span>Lipides</span> <strong>22,3g</strong></li>
+            <li><span>Glucides</span> <strong>80,5g</strong></li>
+            
+            <!-- AJOUT DU PRIX -->
+            <li><span>Budget estimé</span> <strong>3,20 €</strong></li>
+        </ul>
+    </div>
+</article>
 
             <!-- Plat 2 -->
             <article class="recipe-card">
