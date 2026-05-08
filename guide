@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Nutritionnel - NutriDélices</title>
+    <style>
+        /* --- DESIGN GÉNÉRAL (Identique à la page précédente) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background-color: #388e3c;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* --- TYPOGRAPHIE ET CONTENU --- */
+        h2 {
+            color: #2e7d32;
+            border-bottom: 2px solid #e8f5e9;
+            padding-bottom: 10px;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            color: #388e3c;
+        }
+
+        .highlight-box {
+            background-color: #e8f5e9;
+            padding: 1.5rem;
+            border-left: 5px solid #2e7d32;
+            margin: 1.5rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #f9f9f9;
+            color: #2e7d32;
+        }
+
+        .guide-image {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .grid-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .grid-info { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Guide Nutritionnel Complet</h1>
+        <p>Comprendre l'équilibre pour mieux manger au quotidien</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="petit-dejeuner.html">Petit déjeuner</a>
+        <a href="plats-resistants.html">Plats Résistants</a>
+        <a href="desserts.html">Desserts Healthy</a>
+        <a href="guide.html" style="background-color: #2e7d32;">Guide Nutrition</a>
+    </nav>
+
+    <div class="container">
+        
+        <h2>1. L'Assiette Équilibrée</h2>
+        <p>Pour un repas complet, la répartition de vos nutriments devrait idéalement suivre la règle des proportions simples. C'est la base d'une glycémie stable et d'une énergie durable.</p>
+        
+        <img src="http://static1.squarespace.com/static/58f6762e1b10e3798cb3de74/58f75cb4d482e9133f51cc70/5c34a035c2241bb2be7e68bc/1612793032913/Assiette+sant%C3%A9+_+assiette+optimale+-+assiette+%C3%A9quilibr%C3%A9e+-+nutritionbyaurelia_small.jpg?format=1500w" alt="Répartition assiette équilibrée" class="guide-image">
+
+        <div class="grid-info">
+            <div>
+                <h3>50% : Légumes</h3>
+                <p>Fibres, vitamines et minéraux. Ils assurent la satiété et le bon fonctionnement du transit. Variez les couleurs pour maximiser les antioxydants.</p>
+            </div>
+            <div>
+                <h3>25% : Protéines</h3>
+                <p>Viandes blanches, poissons, œufs, tofu ou légumineuses. Indispensables pour le maintien de la masse musculaire et la réparation des tissus.</p>
+            </div>
+            <div>
+                <h3>25% : Glucides Complexes</h3>
+                <p>Riz complet, quinoa, patate douce, sarrasin. Privilégiez les céréales entières pour une libération lente de l'énergie.</p>
+            </div>
+            <div>
+                <h3>1 Dose : Bonnes Graisses</h3>
+                <p>Huile d'olive, avocat, oléagineux. Les lipides sont cruciaux pour le cerveau et l'absorption des vitamines A, D, E et K.</p>
+            </div>
+        </div>
+
+        <h2>2. L'Index Glycémique (IG)</h2>
+        <p>L'index glycémique mesure la capacité d'un aliment à élever le taux de sucre dans le sang. Un IG bas évite les pics d'insuline, responsables du stockage des graisses et des "coups de barre".</p>
+
+        <img src="https://zerosucreetigbas.fr/wp-content/uploads/2021/10/tableau-IG-legumes-cereales-et-legumineuses.jpg" alt="Tableau Index Glycémique" class="guide-image">
+
+        <div class="highlight-box">
+            <strong>Astuce NutriDélices :</strong> Pour faire baisser l'IG d'un repas, ajoutez toujours une source de fibres (légumes verts) ou un filet de vinaigre/citron.
+        </div>
+
+        <h2>3. Les Macro-nutriments en Détails</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nutriment</th>
+                    <th>Rôle Principal</th>
+                    <th>Meilleures Sources</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Protéines</td>
+                    <td>Construction musculaire</td>
+                    <td>Poulet, Pois chiches, Œufs, Saumon</td>
+                </tr>
+                <tr>
+                    <td>Glucides</td>
+                    <td>Carburant du corps</td>
+                    <td>Avoine, Fruits, Riz basmati, Pain complet</td>
+                </tr>
+                <tr>
+                    <td>Lipides</td>
+                    <td>Santé hormonale</td>
+                    <td>Noix, Huile de colza, Poissons gras</td>
+                </tr>
+                <tr>
+                    <td>Fibres</td>
+                    <td>Digestion & Satiété</td>
+                    <td>Lentilles, Brocolis, Pommes, Chia</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Les 3 Clés d'une Bonne Hydratation</h2>
+        <ul>
+            <li><strong>Le Volume :</strong> Visez 1,5L à 2L d'eau par jour, ajustez selon votre activité physique.</li>
+            <li><strong>Le Timing :</strong> Buvez tout au long de la journée plutôt que de grandes quantités uniquement pendant les repas.</li>
+            <li><strong>La Qualité :</strong> Privilégiez l'eau plate, les infusions sans sucre et le thé vert. Limitez les jus de fruits, même "100% pur jus", car ils manquent de fibres.</li>
+        </ul>
+
+        <h2>5. La Pyramide Alimentaire Moderne</h2>
+        <p>Elle permet de visualiser la fréquence de consommation recommandée pour chaque groupe d'aliments.</p>
+        <img src="http://www.celiadreams.be/wp-content/uploads/2017/10/Pyramide-Alimentaire.png" alt="Pyramide alimentaire" class="guide-image">
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NutriDélices - Votre santé commence dans votre assiette.</p>
+    </footer>
+
+</body>
+</html>
