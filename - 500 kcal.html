@@ -1,1 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>les plaisirs à moins de 500 kcal</title>
+    <style>
+        /* --- DESIGN GÉNÉRAL (Identique à l'accueil) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
 
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            background-color: #388e3c;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* --- GRILLE DES RECETTES --- */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Style de l'image pour qu'elle remplisse bien son espace */
+        .recipe-image {
+            height: 220px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+            background-color: #e8f5e9;
+        }
+
+        .recipe-content {
+            padding: 1.5rem;
+        }
+
+        /* --- STYLE NUTRI-SCORE --- */
+        .nutriscore {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .score-a { background-color: #008b4c; }
+        .score-b { background-color: #85bb2f; }
+
+        .details-list {
+            font-size: 0.9rem;
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+
+        .details-list li {
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2e7d32;
+            color: white;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>des plaisirs à moins de 500 kcal</h1>
+        <p>Faites vous plasir tout en mangeant bien</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="petit-dejeuner.html">Petit déjeuner</a>
+        <a href="plats-resistants.html" style="background-color: #1b5e20;">Plats Résistants</a>
+        <a href="desserts.html">Desserts Healthy</a>
+        <a href="guide.html">Guide Nutrition</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="recipe-grid">
+           <!-- Plat 1 -->
+<article class="recipe-card">
+    <div class="recipe-image-container" style="position: relative; overflow: hidden;"> <!-- Conteneur pour le badge -->
+        
+        <!-- BADGE DE TEMPS -->
+        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10;">
+            🕒 15 min
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80" alt="Saumon Grillé" class="recipe-image" style="width: 100%; display: block;">
+    </div>
+
+    <div class="recipe-content">
+        <span class="nutriscore score-a">Nutri-Score A</span>
+        <h3>Saumon Grillé aux Asperges</h3>
+        <p>Riche en Oméga-3, accompagné de riz noir complet et asperges croquantes.</p>
+        
+        <ul class="details-list">
+            <li><span>Calories</span> <strong>420 kcal</strong></li>
+            <li><span>Protéines</span> <strong>28g</strong></li>
+            <li><span>Lipides</span> <strong>14g</strong></li>
+            <li><span>Glucides</span> <strong>35g</strong></li>
+            
+            <!-- AJOUT DU PRIX -->
+            <li><span>Budget estimé</span> <strong>5 à 8€</strong></li>
+        </ul>
+        
+    </div>
+</article>
+
+           <!-- Plat 2 -->
+<article class="recipe-card">
+    <div class="recipe-image-container" style="position: relative; overflow: hidden;"> <!-- Conteneur pour le badge -->
+        
+        <!-- BADGE DE TEMPS -->
+        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10;">
+            🕒 25 min
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" alt="Lasagnes Végétariennes" class="recipe-image" style="width: 100%; display: block;">
+    </div>
+
+    <div class="recipe-content">
+        <span class="nutriscore score-b">Nutri-Score B</span>
+        <h3>Lasagnes aux Légumes du Soleil</h3>
+        <p>Aubergines, courgettes et poivrons avec une béchamel légère au lait d'amande.</p>
+        
+        <ul class="details-list">
+            <li><span>Calories</span> <strong>380 kcal</strong></li>
+            <li><span>Protéines</span> <strong>15g</strong></li>
+            <li><span>Lipides</span> <strong>12g</strong></li>
+            <li><span>Glucides</span> <strong>48g</strong></li>
+            
+            <!-- AJOUT DU PRIX -->
+            <li><span>Budget estimé</span> <strong>10€</strong></li>
+        </ul>
+        
+    </div>
+</article>
+
+           <!-- Plat 3 -->
+<article class="recipe-card">
+    <div class="recipe-image-container" style="position: relative; overflow: hidden;"> <!-- Conteneur pour le badge -->
+        
+        <!-- BADGE DE TEMPS -->
+        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10;">
+            🕒 20 min
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1545093149-618ce3bcf49d?auto=format&fit=crop&w=800&q=80" alt="Dahl de lentilles" class="recipe-image" style="width: 100%; display: block;">
+    </div>
+
+    <div class="recipe-content">
+        <span class="nutriscore score-a">Nutri-Score A</span>
+        <h3>Dahl Indien Épicé</h3>
+        <p>Un plat végétalien riche en protéines végétales et en fer.</p>
+        
+        <ul class="details-list">
+            <li><span>Calories</span> <strong>310 kcal</strong></li>
+            <li><span>Protéines</span> <strong>18g</strong></li>
+            <li><span>Lipides</span> <strong>5g</strong></li>
+            <li><span>Glucides</span> <strong>42g</strong></li>
+            
+            <!-- AJOUT DU PRIX -->
+            <li><span>Budget estimé</span> <strong>6€</strong></li>
+        </ul>
+        
+    </div>
+</article>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 NutriDélices - Vos plats de résistance sains et savoureux.</p>
+    </footer>
+
+</body>
+</html>
