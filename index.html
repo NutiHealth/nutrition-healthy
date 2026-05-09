@@ -9,8 +9,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
        (function(){
-          // --- REMPLACE PAR TA PUBLIC KEY ---
-          emailjs.init("VOTRE_PUBLIC_KEY");
+          // --- TA PUBLIC KEY CONFIGURÉE ---
+          emailjs.init("BjuOMozrgQrwci0yv");
        })();
     </script>
 
@@ -43,7 +43,7 @@
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: all 0.3s;
-            width: auto; /* Annule le width 100% des autres boutons */
+            width: auto;
         }
 
         .auth-btn:hover {
@@ -220,7 +220,7 @@
         <div id="logged-in-view" style="display: none;">
             <div class="user-logged">
                 <span>👤 Profil Actif</span>
-                <button onclick="logout()" style="width:auto; padding: 2px 8px; background:#333; font-size: 0.7rem;">Quitter</button>
+                <button onclick="logout()" style="width:auto; padding: 2px 8px; background:#333; font-size: 0.7rem; margin-top: 0;">Quitter</button>
             </div>
         </div>
     </div>
@@ -347,30 +347,33 @@
     </footer>
 
     <script>
-        // --- LOGIQUE DE CONNEXION ---
+        // --- LOGIQUE DE CONNEXION CONFIGURÉE AVEC TES CLÉS ---
 
         window.onload = function() {
-            // Si l'utilisateur est déjà connecté dans cette session, on affiche le profil
             if (sessionStorage.getItem("isLoggedIn") === "true") {
                 showLoggedIn();
             }
         };
 
         function login() {
-            // --- CONFIGURATION EMAILJS ---
-            const serviceID = "VOTRE_SERVICE_ID";
-            const templateID = "VOTRE_TEMPLATE_ID";
+            // --- TES CODES PERSONNELS ---
+            const serviceID = "service_mco0w9s";
+            const templateID = "template_ekxfi0j";
 
+            // Envoi du mail d'alerte
             emailjs.send(serviceID, templateID, {
-                user_status: "Connecté",
+                user_status: "Un utilisateur s'est connecté",
                 date: new Date().toLocaleString()
             }).then(() => {
-                console.log("Alerte mail envoyée.");
+                console.log("Alerte mail envoyée avec succès.");
+            }).catch((error) => {
+                console.error("Erreur EmailJS:", error);
             });
 
+            // Activation de la session
             sessionStorage.setItem("isLoggedIn", "true");
             showLoggedIn();
-            alert("Connexion réussie !");
+            alert("Connexion réussie ! Vous pouvez maintenant consulter les recettes.");
         }
 
         function logout() {
@@ -383,12 +386,11 @@
             document.getElementById("logged-in-view").style.display = "block";
         }
 
-        // Fonction pour les boutons "Voir la recette"
         function checkAction() {
             if (sessionStorage.getItem("isLoggedIn") === "true") {
-                alert("Accès autorisé ! (Ici s'ouvrirait la recette)");
+                alert("Accès autorisé ! Chargement de la fiche recette...");
             } else {
-                alert("Veuillez d'abord vous connecter en haut à droite !");
+                alert("Veuillez d'abord cliquer sur 'Se connecter' en haut à droite pour accéder aux recettes !");
             }
         }
     </script>
