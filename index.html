@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NutriDélices - Accueil</title>
+    
+    <!-- 1. IMPORTATION EMAILJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          // --- REMPLACE PAR TA PUBLIC KEY ---
+          emailjs.init("VOTRE_PUBLIC_KEY");
+       })();
+    </script>
+
     <style>
         /* --- DESIGN GÉNÉRAL --- */
         body {
@@ -13,6 +23,44 @@
             background-color: #f4f7f6;
             color: #333;
             line-height: 1.6;
+        }
+
+        /* --- STYLE DU BOUTON DE CONNEXION (HAUT DROITE) --- */
+        #auth-header {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 2000;
+        }
+
+        .auth-btn {
+            background-color: #ffffff;
+            color: #2e7d32;
+            border: 2px solid #ffffff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            width: auto; /* Annule le width 100% des autres boutons */
+        }
+
+        .auth-btn:hover {
+            background-color: #e8f5e9;
+            transform: scale(1.05);
+        }
+
+        .user-logged {
+            background-color: #ffc107;
+            color: #333;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         header {
@@ -164,6 +212,19 @@
 </head>
 <body>
 
+    <!-- ZONE DE CONNEXION -->
+    <div id="auth-header">
+        <div id="logged-out-view">
+            <button class="auth-btn" onclick="login()">Se connecter</button>
+        </div>
+        <div id="logged-in-view" style="display: none;">
+            <div class="user-logged">
+                <span>👤 Profil Actif</span>
+                <button onclick="logout()" style="width:auto; padding: 2px 8px; background:#333; font-size: 0.7rem;">Quitter</button>
+            </div>
+        </div>
+    </div>
+
     <header>
         <h1>NutriDélices</h1>
         <p>Mangez mieux, vivez mieux</p>
@@ -187,116 +248,97 @@
         <h2>Recettes à la une</h2>
         <div class="recipe-grid">
             
-        <!-- Plat 1 -->
-<article class="recipe-card">
-    <div class="recipe-image" style="position: relative;"> <!-- Ajout de la position relative -->
-        
-        <!-- BADGE DE TEMPS -->
-        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            🕒 25 à 30 min
-        </div>
+            <!-- Plat 1 -->
+            <article class="recipe-card">
+                <div class="recipe-image" style="position: relative;">
+                    <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        🕒 25 à 30 min
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Salade de Quinoa">
+                </div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-a">Nutri-Score A</span>
+                    <h3>Salade de Quinoa</h3>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>70g Quinoa rouge et blanc</li>
+                        <li>1 Avocat, Tomates cerises 1 concombre</li>
+                        <li>200g pois chiches cuits</li>
+                        <li>persil ou menthe fraîche</li>
+                        <li>graines de courge</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>614 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>24g</strong></li>
+                        <li><span>Lipides</span> <strong>22,3g</strong></li>
+                        <li><span>Glucides</span> <strong>80,5g</strong></li>
+                        <li><span>Budget estimé</span> <strong>4 à 6€</strong></li>
+                    </ul>
+                    <button onclick="checkAction()">Voir la recette</button>
+                </div>
+            </article>
 
-        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=800&auto=format&fit=crop" alt="Salade de Quinoa">
-    </div>
+            <!-- Plat 2 -->
+            <article class="recipe-card">
+                <div class="recipe-image" style="position: relative;">
+                    <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        🕒 20 min
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop" alt="Saumon Grillé">
+                </div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-a">Nutri-Score A</span>
+                    <h3>Saumon aux Légumes</h3>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Pavé de saumon frais 125g</li>
+                        <li>1/2 courgette</li>
+                        <li>1/2 citron</li>
+                        <li>6 tomates cerises</li>
+                        <li>1 grosse poignée de pousses d'épinards</li>
+                        <li>épices</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>308 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>27,7g</strong></li>
+                        <li><span>Lipides</span> <strong>17,6g</strong></li>
+                        <li><span>Glucides</span> <strong>8,8g</strong></li>
+                        <li><span>Budget estimé</span> <strong>6 à 9€</strong></li>
+                    </ul>
+                    <button onclick="checkAction()">Voir la recette</button>
+                </div>
+            </article>
 
-    <div class="recipe-content">
-        <span class="nutriscore score-a">Nutri-Score A</span>
-        <h3>Salade de Quinoa</h3>
-        
-        <p><strong>Ingrédients :</strong></p>
-        <ul class="ingredients-list">
-            <li>70g Quinoa rouge et blanc</li>
-            <li>1 Avocat, Tomates cerises 1 concombre</li>
-            <li>200g pois chiches cuits</li>
-            <li>persil ou menthe fraîche</li>
-            <li>graines de courge</li>
-        </ul>
-
-        <ul class="details-list">
-            <li><span>Calories</span> <strong>614 kcal</strong></li>
-            <li><span>Protéines</span> <strong>24g</strong></li>
-            <li><span>Lipides</span> <strong>22,3g</strong></li>
-            <li><span>Glucides</span> <strong>80,5g</strong></li>
-            
-            <!-- AJOUT DU PRIX -->
-            <li><span>Budget estimé</span> <strong>4 à 6€</strong></li>
-        </ul>
-    </div>
-</article>
-
-           <!-- Plat 2 -->
-<article class="recipe-card">
-    <div class="recipe-image" style="position: relative;"> <!-- Ajout du position: relative ici -->
-        
-        <!-- BADGE DE TEMPS -->
-        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            🕒 20 min
-        </div>
-
-        <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?q=80&w=800&auto=format&fit=crop" alt="Saumon Grillé">
-    </div>
-
-    <div class="recipe-content">
-        <span class="nutriscore score-a">Nutri-Score A</span>
-        <h3>Saumon aux Légumes</h3>
-        <p><strong>Ingrédients :</strong></p>
-        <ul class="ingredients-list">
-            <li>Pavé de saumon frais 125g</li>
-            <li>1/2 courgette</li>
-            <li>1/2 citron</li>
-            <li>6 tomates cerises</li>
-            <li>1 grosse poignée de pousses d'épinards</li>
-            <li>épices</li>
-        </ul>
-        <ul class="details-list">
-            <li><span>Calories</span> <strong>308 kcal</strong></li>
-            <li><span>Protéines</span> <strong>27,7g</strong></li>
-            <li><span>Lipides</span> <strong>17,6g</strong></li>
-            <li><span>Glucides</span> <strong>8,8g</strong></li>
-            
-            <!-- AJOUT DU PRIX -->
-            <li><span>Budget estimé</span> <strong>6 à 9€</strong></li>
-        </ul>
-    </div>
-</article>
-
-           <!-- Plat 3 -->
-<article class="recipe-card">
-    <div class="recipe-image" style="position: relative;"> <!-- Ajout de la position relative pour le badge -->
-        
-        <!-- BADGE DE TEMPS -->
-        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            🕒 30 à 40 min
-        </div>
-
-        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop" alt="Bowl de Poulet">
-    </div>
-
-    <div class="recipe-content">
-        <span class="nutriscore score-b">Nutri-Score B</span>
-        <h3>Bowl de Poulet Grillé</h3>
-        
-        <p><strong>Ingrédients :</strong></p>
-        <ul class="ingredients-list">
-            <li>Blanc de poulet mariné 120g</li>
-            <li>Riz complet 50g</li>
-            <li>1/4 concombre</li>
-            <li>1 avocat</li>
-            <li>1 carotte</li>
-            <li>pois chiches</li>
-        </ul>
-
-        <ul class="details-list">
-            <li><span>Calories</span> <strong>690 kcal</strong></li>
-            <li><span>Protéines</span> <strong>40,5g</strong></li>
-            <li><span>Lipides</span> <strong>32g</strong></li>
-            <li><span>Glucides</span> <strong>64g</strong></li>
-            
-            <!-- AJOUT DU PRIX -->
-            <li><span>Budget estimé</span> <strong>5 à 7€</strong></li>
-        </ul>
-    </div>
-</article>
+            <!-- Plat 3 -->
+            <article class="recipe-card">
+                <div class="recipe-image" style="position: relative;">
+                    <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                        🕒 30 à 40 min
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=800&auto=format&fit=crop" alt="Bowl de Poulet">
+                </div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-b">Nutri-Score B</span>
+                    <h3>Bowl de Poulet Grillé</h3>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Blanc de poulet mariné 120g</li>
+                        <li>Riz complet 50g</li>
+                        <li>1/4 concombre</li>
+                        <li>1 avocat</li>
+                        <li>1 carotte</li>
+                        <li>pois chiches</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>690 kcal</strong></li>
+                        <li><span>Protéines</span> <strong>40,5g</strong></li>
+                        <li><span>Lipides</span> <strong>32g</strong></li>
+                        <li><span>Glucides</span> <strong>64g</strong></li>
+                        <li><span>Budget estimé</span> <strong>5 à 7€</strong></li>
+                    </ul>
+                    <button onclick="checkAction()">Voir la recette</button>
+                </div>
+            </article>
         </div>
     </div>
 
@@ -304,5 +346,51 @@
         <p>&copy; 2026 NutriDélices - Informations nutritionnelles certifiées.</p>
     </footer>
 
+    <script>
+        // --- LOGIQUE DE CONNEXION ---
+
+        window.onload = function() {
+            // Si l'utilisateur est déjà connecté dans cette session, on affiche le profil
+            if (sessionStorage.getItem("isLoggedIn") === "true") {
+                showLoggedIn();
+            }
+        };
+
+        function login() {
+            // --- CONFIGURATION EMAILJS ---
+            const serviceID = "VOTRE_SERVICE_ID";
+            const templateID = "VOTRE_TEMPLATE_ID";
+
+            emailjs.send(serviceID, templateID, {
+                user_status: "Connecté",
+                date: new Date().toLocaleString()
+            }).then(() => {
+                console.log("Alerte mail envoyée.");
+            });
+
+            sessionStorage.setItem("isLoggedIn", "true");
+            showLoggedIn();
+            alert("Connexion réussie !");
+        }
+
+        function logout() {
+            sessionStorage.removeItem("isLoggedIn");
+            location.reload();
+        }
+
+        function showLoggedIn() {
+            document.getElementById("logged-out-view").style.display = "none";
+            document.getElementById("logged-in-view").style.display = "block";
+        }
+
+        // Fonction pour les boutons "Voir la recette"
+        function checkAction() {
+            if (sessionStorage.getItem("isLoggedIn") === "true") {
+                alert("Accès autorisé ! (Ici s'ouvrirait la recette)");
+            } else {
+                alert("Veuillez d'abord vous connecter en haut à droite !");
+            }
+        }
+    </script>
 </body>
 </html>
