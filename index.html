@@ -23,25 +23,42 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
+        /* --- NAVIGATION CORRIGÉE (SLIDE) --- */
         nav {
             background-color: #388e3c;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Aligne au début pour permettre le défilement */
             position: sticky;
             top: 0;
             z-index: 1000;
+            overflow-x: auto; /* Active le "slide" horizontal */
+            white-space: nowrap; /* Empêche le retour à la ligne */
+            -webkit-overflow-scrolling: touch; /* Fluidité sur iPhone */
+            scrollbar-width: none; /* Cache la scrollbar sur Firefox */
+        }
+
+        nav::-webkit-scrollbar {
+            display: none; /* Cache la scrollbar sur Chrome/Safari */
         }
 
         nav a {
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             text-decoration: none;
             font-weight: bold;
             transition: background 0.3s;
+            flex-shrink: 0; /* Empêche les onglets de rétrécir */
         }
 
         nav a:hover {
             background-color: #45a049;
+        }
+
+        /* Centrage automatique si l'écran est assez large (ordinateur) */
+        @media (min-width: 1024px) {
+            nav {
+                justify-content: center;
+            }
         }
 
         .container {
@@ -184,7 +201,10 @@
         </section>
 
         <h2>Recettes à la une</h2>
-        <div class="recipe-grid">
+        </div>
+</body>
+</html>
+
             
         <!-- Plat 1 -->
 <article class="recipe-card">
