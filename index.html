@@ -23,23 +23,21 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        /* --- NAVIGATION CORRIGÉE (SLIDE) --- */
+        /* --- NAVIGATION --- */
         nav {
             background-color: #388e3c;
             display: flex;
-            justify-content: flex-start; /* Aligne au début pour permettre le défilement */
+            justify-content: flex-start;
             position: sticky;
             top: 0;
             z-index: 1000;
-            overflow-x: auto; /* Active le "slide" horizontal */
-            white-space: nowrap; /* Empêche le retour à la ligne */
-            -webkit-overflow-scrolling: touch; /* Fluidité sur iPhone */
-            scrollbar-width: none; /* Cache la scrollbar sur Firefox */
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
 
-        nav::-webkit-scrollbar {
-            display: none; /* Cache la scrollbar sur Chrome/Safari */
-        }
+        nav::-webkit-scrollbar { display: none; }
 
         nav a {
             color: white;
@@ -47,18 +45,13 @@
             text-decoration: none;
             font-weight: bold;
             transition: background 0.3s;
-            flex-shrink: 0; /* Empêche les onglets de rétrécir */
+            flex-shrink: 0;
         }
 
-        nav a:hover {
-            background-color: #45a049;
-        }
+        nav a:hover { background-color: #45a049; }
 
-        /* Centrage automatique si l'écran est assez large (ordinateur) */
         @media (min-width: 1024px) {
-            nav {
-                justify-content: center;
-            }
+            nav { justify-content: center; }
         }
 
         .container {
@@ -76,11 +69,12 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
-        /* --- GRILLE DES RECETTES --- */
+        /* --- GRILLE DES RECETTES (CORRIGÉ) --- */
         .recipe-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .recipe-card {
@@ -99,14 +93,16 @@
         }
 
         .recipe-image {
-            height: 220px;
+            height: 200px; /* Hauteur fixe pour l'harmonie */
+            width: 100%;
+            position: relative;
             overflow: hidden;
         }
 
         .recipe-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* L'image remplit la zone sans se déformer */
         }
 
         .recipe-content {
@@ -124,17 +120,15 @@
             font-weight: bold;
             margin-bottom: 1rem;
             color: white;
-            width: fit-content;
+            font-size: 0.8rem;
         }
 
         .score-a { background-color: #008b4c; }
         .score-b { background-color: #85bb2f; }
 
-        /* --- LISTES DÉTAILLÉES --- */
         .ingredients-list {
             font-size: 0.9rem;
             padding-left: 20px;
-            margin: 10px 0;
             color: #555;
         }
 
@@ -142,32 +136,14 @@
             font-size: 0.9rem;
             list-style: none;
             padding: 0;
-            margin: 15px 0;
+            margin-top: 15px;
         }
 
         .details-list li {
-            margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             border-bottom: 1px dotted #ccc;
-        }
-
-        /* --- BOUTONS --- */
-        button {
-            width: 100%;
-            padding: 12px;
-            margin-top: auto;
-            cursor: pointer;
-            border: none;
-            background-color: #2e7d32;
-            color: white;
-            font-weight: bold;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background-color: #1b5e20;
+            margin-bottom: 5px;
         }
 
         footer {
@@ -176,6 +152,19 @@
             background: #333;
             color: white;
             margin-top: 4rem;
+        }
+
+        .badge-time {
+            position: absolute; 
+            top: 10px; 
+            left: 10px; 
+            background: white; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            font-size: 0.8rem; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 2;
         }
     </style>
 </head>
@@ -201,123 +190,77 @@
         </section>
 
         <h2>Recettes à la une</h2>
-        </div>
-</body>
-</html>
 
+        <!-- DÉBUT DE LA GRILLE -->
+        <div class="recipe-grid">
             
-        <!-- Plat 1 -->
-<article class="recipe-card">
-    <div class="recipe-image" style="position: relative;"> <!-- Ajout de la position relative -->
-        
-        <!-- BADGE DE TEMPS -->
-        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            🕒 25 à 30 min
-        </div>
+            <!-- Plat 1 -->
+            <article class="recipe-card">
+                <div class="recipe-image">
+                    <div class="badge-time">🕒 25 à 30 min</div>
+                    <img src="index 1.jpeg" alt="Buddha Bowl">
+                </div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-a">Nutri-Score A</span>
+                    <h3>Buddha Bowl</h3>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>80g de quinoa</li>
+                        <li>1 avocat</li>
+                        <li>100g de pois chiches</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>800kcal</strong></li>
+                        <li><span>Budget</span> <strong>4€</strong></li>
+                    </ul>
+                </div>
+            </article>
 
-         <img src="index 1.jpeg">
-    </div>
+            <!-- Plat 2 -->
+            <article class="recipe-card">
+                <div class="recipe-image">
+                    <div class="badge-time">🕒 20 min</div>
+                    <img src="index 2.jpeg" alt="Saumon">
+                </div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-a">Nutri-Score A</span>
+                    <h3>Saumon aux Légumes</h3>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Pavé de saumon 125g</li>
+                        <li>1/2 courgette</li>
+                        <li>Citron & Épinards</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>308 kcal</strong></li>
+                        <li><span>Budget</span> <strong>6-9€</strong></li>
+                    </ul>
+                </div>
+            </article>
 
-    <div class="recipe-content">
-        <span class="nutriscore score-a">Nutri-Score A</span>
-        <h3>Buddha Bowl</h3>
-        
-        <p><strong>Ingrédients :</strong></p>
-        <ul class="ingredients-list">
-            <li>80g de quinoa</li>
-            <li>1 avocat</li>
-            <li>100g de pois chiches</li>
-            <li>6 tomates cerises</li>
-            <li>1/4 de concombre</li>
-            <li>graines de courge</li>
-        </ul>
+            <!-- Plat 3 -->
+            <article class="recipe-card">
+                <div class="recipe-image">
+                    <div class="badge-time">🕒 30 à 40 min</div>
+                    <img src="index 3.jpeg" alt="Poulet Grillé">
+                </div>
+                <div class="recipe-content">
+                    <span class="nutriscore score-b">Nutri-Score B</span>
+                    <h3>Bowl de Poulet Grillé</h3>
+                    <p><strong>Ingrédients :</strong></p>
+                    <ul class="ingredients-list">
+                        <li>Blanc de poulet 120g</li>
+                        <li>Riz complet 50g</li>
+                        <li>Patate douce</li>
+                    </ul>
+                    <ul class="details-list">
+                        <li><span>Calories</span> <strong>690 kcal</strong></li>
+                        <li><span>Budget</span> <strong>5-7€</strong></li>
+                    </ul>
+                </div>
+            </article>
 
-        <ul class="details-list">
-            <li><span>Calories</span> <strong>800kcal</strong></li>
-            <li><span>Protéines</span> <strong>26g</strong></li>
-            <li><span>Lipides</span> <strong>40g</strong></li>
-            <li><span>Glucides</span> <strong>95g</strong></li>
-            
-            <!-- AJOUT DU PRIX -->
-            <li><span>Budget estimé</span> <strong>4€</strong></li>
-        </ul>
-    </div>
-</article>
-
-           <!-- Plat 2 -->
-<article class="recipe-card">
-    <div class="recipe-image" style="position: relative;"> <!-- Ajout du position: relative ici -->
-        
-        <!-- BADGE DE TEMPS -->
-        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            🕒 20 min
-        </div>
-
-         <img src="index 2.jpeg">
-    </div>
-
-    <div class="recipe-content">
-        <span class="nutriscore score-a">Nutri-Score A</span>
-        <h3>Saumon aux Légumes</h3>
-        <p><strong>Ingrédients :</strong></p>
-        <ul class="ingredients-list">
-            <li>Pavé de saumon frais 125g</li>
-            <li>1/2 courgette</li>
-            <li>1/2 citron</li>
-            <li>6 tomates cerises</li>
-            <li>1 grosse poignée de pousses d'épinards</li>
-            <li>épices</li>
-        </ul>
-        <ul class="details-list">
-            <li><span>Calories</span> <strong>308 kcal</strong></li>
-            <li><span>Protéines</span> <strong>27,7g</strong></li>
-            <li><span>Lipides</span> <strong>17,6g</strong></li>
-            <li><span>Glucides</span> <strong>8,8g</strong></li>
-            
-            <!-- AJOUT DU PRIX -->
-            <li><span>Budget estimé</span> <strong>6 à 9€</strong></li>
-        </ul>
-    </div>
-</article>
-
-           <!-- Plat 3 -->
-<article class="recipe-card">
-    <div class="recipe-image" style="position: relative;"> <!-- Ajout de la position relative pour le badge -->
-        
-        <!-- BADGE DE TEMPS -->
-        <div style="position: absolute; top: 10px; left: 10px; background: white; padding: 5px 10px; border-radius: 5px; font-weight: bold; font-size: 0.8rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-            🕒 30 à 40 min
-        </div>
-
-         <img src="index 3.jpeg">
-    </div>
-
-    <div class="recipe-content">
-        <span class="nutriscore score-b">Nutri-Score B</span>
-        <h3>Bowl de Poulet Grillé</h3>
-        
-        <p><strong>Ingrédients :</strong></p>
-        <ul class="ingredients-list">
-            <li>Blanc de poulet mariné 120g</li>
-            <li>Riz complet 50g</li>
-            <li>100g de patate douce</li>
-            <li>1/2 courgette</li>
-            <li>1/2 poivron</li>
-            <li>graines / noix</li>
-        </ul>
-
-        <ul class="details-list">
-            <li><span>Calories</span> <strong>690 kcal</strong></li>
-            <li><span>Protéines</span> <strong>40,5g</strong></li>
-            <li><span>Lipides</span> <strong>32g</strong></li>
-            <li><span>Glucides</span> <strong>64g</strong></li>
-            
-            <!-- AJOUT DU PRIX -->
-            <li><span>Budget estimé</span> <strong>5 à 7€</strong></li>
-        </ul>
-    </div>
-</article>
-        </div>
+        </div> <!-- FIN DE LA GRILLE -->
     </div>
 
     <footer>
