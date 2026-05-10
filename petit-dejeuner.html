@@ -21,17 +21,26 @@
             padding: 3rem 1rem;
             text-align: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+         }
 
-        /* --- BARRE DE NAVIGATION --- */
+        /* --- NAVIGATION CORRIGÉE (SLIDE) --- */
         nav {
             background-color: #388e3c;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start; /* Aligne au début pour permettre le défilement */
             position: sticky;
             top: 0;
             z-index: 1000;
+            overflow-x: auto; /* Active le "slide" horizontal */
+            white-space: nowrap; /* Empêche le retour à la ligne */
+            -webkit-overflow-scrolling: touch; /* Fluidité sur iPhone */
+            scrollbar-width: none; /* Cache la scrollbar sur Firefox */
         }
+
+        nav::-webkit-scrollbar {
+            display: none; /* Cache la scrollbar sur Chrome/Safari */
+        }
+
 
         nav a {
             color: white;
