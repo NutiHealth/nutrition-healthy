@@ -209,7 +209,8 @@
             <li><span>Glucides</span> <strong>95g</strong></li> 
         </ul> 
 
-        <button onclick="openRecipe()" style="margin-top:15px; padding:10px 15px; border:none; border-radius:8px; background:#4CAF50; color:white; cursor:pointer;">
+         <!-- Bouton -->
+        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
             Voir la recette entière
         </button>
     </div> 
@@ -326,12 +327,12 @@ function closeRecipe() {
                         <li><span>Glucides</span> <strong>8,8g</strong></li> 
                     </ul> 
                     
-                    <!-- Bouton -->
-<button onclick="openRecipe('saumon')" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
-    Voir la recette entière
-</button>
-</div> 
-</article> 
+                      <!-- Bouton -->
+        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+            Voir la recette entière
+        </button>
+    </div> 
+</article>
 
 <!-- Popup -->
 <div id="recipePopup" style="
@@ -357,8 +358,37 @@ function closeRecipe() {
         border-radius:15px;
         box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
-        <!-- La recette va apparaître ici -->
-        <div id="recipeContent"></div>
+        <h2>Buddha Bowl - Recette complète</h2>
+
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
             margin-top:20px;
@@ -375,56 +405,7 @@ function closeRecipe() {
 </div>
 
 <script>
-const recipes = {
-    saumon: `
-        <h2>Saumon aux légumes</h2>
-
-        <h2>👩‍🍳 Étapes de préparation</h2>
-
-        <h3>Étape 1 : Préparation des légumes</h3>
-        <ol>
-            <li>Lavez soigneusement la demi-courgette, les tomates cerises et les pousses d'épinards.</li>
-            <li>Coupez la demi-courgette en rondelles fines.</li>
-            <li>Laissez les 6 tomates cerises entières ou coupez-les en deux.</li>
-            <li>Coupez le demi-citron en fines rondelles.</li>
-        </ol>
-
-        <h3>Étape 2 : Cuisson des légumes</h3>
-        <ol>
-            <li>Faites chauffer une poêle antiadhésive à feu moyen.</li>
-            <li>Déposez les rondelles de courgette et les tomates cerises.</li>
-            <li>Saupoudrez avec vos épices.</li>
-            <li>Laissez cuire environ 5 minutes.</li>
-        </ol>
-
-        <h3>Étape 3 : Cuisson du saumon</h3>
-        <ol>
-            <li>Déposez le pavé de saumon côté peau.</li>
-            <li>Laissez cuire 3 à 4 minutes de chaque côté.</li>
-        </ol>
-
-        <h3>Étape 4 : Dressage</h3>
-        <ol>
-            <li>Disposez légumes + saumon dans une assiette.</li>
-        </ol>
-    `,
-
-    buddha: `
-        <h2>Buddha Bowl</h2>
-
-        <h2>👩‍🍳 Étapes de préparation</h2>
-
-        <ol>
-            <li>Cuire le quinoa.</li>
-            <li>Couper avocat, concombre et tomates.</li>
-            <li>Ajouter pois chiches et graines.</li>
-            <li>Assembler dans un bol.</li>
-        </ol>
-    `
-};
-
-function openRecipe(recipeName) {
-    document.getElementById("recipeContent").innerHTML = recipes[recipeName];
+function openRecipe() {
     document.getElementById("recipePopup").style.display = "flex";
 
     document.body.style.position = "fixed";
@@ -497,12 +478,12 @@ function closeRecipe() {
                         <li><span>Glucides</span> <strong>64g</strong></li> 
                     </ul> 
 
-                    <!-- Bouton -->
-<button onclick="openRecipe('saumon')" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
-    Voir la recette entière
-</button>
-</div> 
-</article> 
+                     <!-- Bouton -->
+        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+            Voir la recette entière
+        </button>
+    </div> 
+</article>
 
 <!-- Popup -->
 <div id="recipePopup" style="
@@ -528,8 +509,37 @@ function closeRecipe() {
         border-radius:15px;
         box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
-        <!-- La recette va apparaître ici -->
-        <div id="recipeContent"></div>
+        <h2>Buddha Bowl - Recette complète</h2>
+
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
             margin-top:20px;
@@ -546,56 +556,7 @@ function closeRecipe() {
 </div>
 
 <script>
-const recipes = {
-    saumon: `
-        <h2>Saumon aux légumes</h2>
-
-        <h2>👩‍🍳 Étapes de préparation</h2>
-
-        <h3>Étape 1 : Préparation des légumes</h3>
-        <ol>
-            <li>Lavez soigneusement la demi-courgette, les tomates cerises et les pousses d'épinards.</li>
-            <li>Coupez la demi-courgette en rondelles fines.</li>
-            <li>Laissez les 6 tomates cerises entières ou coupez-les en deux.</li>
-            <li>Coupez le demi-citron en fines rondelles.</li>
-        </ol>
-
-        <h3>Étape 2 : Cuisson des légumes</h3>
-        <ol>
-            <li>Faites chauffer une poêle antiadhésive à feu moyen.</li>
-            <li>Déposez les rondelles de courgette et les tomates cerises.</li>
-            <li>Saupoudrez avec vos épices.</li>
-            <li>Laissez cuire environ 5 minutes.</li>
-        </ol>
-
-        <h3>Étape 3 : Cuisson du saumon</h3>
-        <ol>
-            <li>Déposez le pavé de saumon côté peau.</li>
-            <li>Laissez cuire 3 à 4 minutes de chaque côté.</li>
-        </ol>
-
-        <h3>Étape 4 : Dressage</h3>
-        <ol>
-            <li>Disposez légumes + saumon dans une assiette.</li>
-        </ol>
-    `,
-
-    buddha: `
-        <h2>Buddha Bowl</h2>
-
-        <h2>👩‍🍳 Étapes de préparation</h2>
-
-        <ol>
-            <li>Cuire le quinoa.</li>
-            <li>Couper avocat, concombre et tomates.</li>
-            <li>Ajouter pois chiches et graines.</li>
-            <li>Assembler dans un bol.</li>
-        </ol>
-    `
-};
-
-function openRecipe(recipeName) {
-    document.getElementById("recipeContent").innerHTML = recipes[recipeName];
+function openRecipe() {
     document.getElementById("recipePopup").style.display = "flex";
 
     document.body.style.position = "fixed";
