@@ -210,14 +210,14 @@
         </ul> 
 
          <!-- Bouton -->
-        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+        <button onclick="openRecipe(1)" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
             Voir la recette entière
         </button>
     </div> 
 </article>
 
-<!-- Popup -->
-<div id="recipePopup" style="
+<!-- Popup 1 -->
+<div id="recipePopup1" style="
     display:none;
     position:fixed;
     inset:0;
@@ -228,8 +228,7 @@
     justify-content:center;
     align-items:center;
 ">
-
-    <div id="popupContent" style="
+    <div id="popupContent1" style="
         background:white;
         width:85%;
         max-width:650px;
@@ -241,9 +240,7 @@
         box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
-
         <h2>👩‍🍳 Étapes de préparation</h2>
-
         <h3>Étape 1 : La cuisson du quinoa</h3>
         <ol>
             <li>Rincez abondamment les 80g de quinoa.</li>
@@ -251,28 +248,24 @@
             <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
             <li>Laissez refroidir quelques minutes.</li>
         </ol>
-
         <h3>Étape 2 : Découpe des légumes</h3>
         <ol>
             <li>Coupez le concombre.</li>
             <li>Coupez les tomates cerises en deux.</li>
             <li>Découpez l’avocat en lamelles.</li>
         </ol>
-
         <h3>Étape 3 : Pois chiches</h3>
         <ol>
             <li>Rincez et égouttez les pois chiches.</li>
             <li>Option : faites-les revenir 2 min à la poêle.</li>
         </ol>
-
         <h3>Étape 4 : Dressage</h3>
         <ol>
             <li>Mettez le quinoa dans le bol.</li>
             <li>Ajoutez légumes, avocat et pois chiches.</li>
             <li>Ajoutez graines de courge.</li>
         </ol>
-
-        <button onclick="closeRecipe()" style="
+        <button onclick="closeRecipe(1)" style="
             margin-top:20px;
             padding:10px 15px;
             border:none;
@@ -286,31 +279,13 @@
     </div>
 </div>
 
-<script>
-function openRecipe() {
-    document.getElementById("recipePopup").style.display = "flex";
-
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
-}
-
-function closeRecipe() {
-    document.getElementById("recipePopup").style.display = "none";
-
-    document.body.style.position = "";
-    document.body.style.width = "";
-    document.body.style.overflow = "";
-}
-</script>
-
             <!-- Plat 2 --> 
             <article class="recipe-card"> 
                 <div class="recipe-image" style="background-image: url('index 2.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div> 
                 <div class="recipe-content"> 
                     <span class="nutriscore score-a">Nutri-Score A</span> 
                     <h3>Saumon aux Légumes</h3> 
-                    
+                     
                     <p><strong>Ingrédients :</strong></p> 
                     <ul class="ingredients-list"> 
                         <li>Pavé de saumon frais 125g</li> 
@@ -326,16 +301,16 @@ function closeRecipe() {
                         <li><span>Lipides</span> <strong>17,6g</strong></li> 
                         <li><span>Glucides</span> <strong>8,8g</strong></li> 
                     </ul> 
-                    
-                      <!-- Bouton -->
-        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
-            Voir la recette entière
-        </button>
-    </div> 
-</article>
+                     
+                     <!-- Bouton -->
+                    <button onclick="openRecipe(2)" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+                        Voir la recette entière
+                    </button>
+                </div> 
+            </article>
 
-<!-- Popup -->
-<div id="recipePopup" style="
+<!-- Popup 2 -->
+<div id="recipePopup2" style="
     display:none;
     position:fixed;
     inset:0;
@@ -346,8 +321,7 @@ function closeRecipe() {
     justify-content:center;
     align-items:center;
 ">
-
-    <div id="popupContent" style="
+    <div id="popupContent2" style="
         background:white;
         width:85%;
         max-width:650px;
@@ -358,39 +332,20 @@ function closeRecipe() {
         border-radius:15px;
         box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
-        <h2>Buddha Bowl - Recette complète</h2>
-
+        <h2>Saumon aux Légumes - Recette complète</h2>
         <h2>👩‍🍳 Étapes de préparation</h2>
-
-        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <h3>Étape 1 : Préparation du saumon</h3>
         <ol>
-            <li>Rincez abondamment les 80g de quinoa.</li>
-            <li>Faites bouillir 160 ml d’eau salée.</li>
-            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
-            <li>Laissez refroidir quelques minutes.</li>
+            <li>Préchauffez votre four à 180°C ou préparez une poêle.</li>
+            <li>Assaisonnez le pavé de saumon avec du citron et des épices.</li>
         </ol>
-
-        <h3>Étape 2 : Découpe des légumes</h3>
+        <h3>Étape 2 : Cuisson des légumes</h3>
         <ol>
-            <li>Coupez le concombre.</li>
-            <li>Coupez les tomates cerises en deux.</li>
-            <li>Découpez l’avocat en lamelles.</li>
+            <li>Coupez la courgette en rondelles.</li>
+            <li>Faites revenir les courgettes et tomates cerises dans un filet d'huile d'olive.</li>
+            <li>Ajoutez les pousses d'épinards en fin de cuisson.</li>
         </ol>
-
-        <h3>Étape 3 : Pois chiches</h3>
-        <ol>
-            <li>Rincez et égouttez les pois chiches.</li>
-            <li>Option : faites-les revenir 2 min à la poêle.</li>
-        </ol>
-
-        <h3>Étape 4 : Dressage</h3>
-        <ol>
-            <li>Mettez le quinoa dans le bol.</li>
-            <li>Ajoutez légumes, avocat et pois chiches.</li>
-            <li>Ajoutez graines de courge.</li>
-        </ol>
-
-        <button onclick="closeRecipe()" style="
+        <button onclick="closeRecipe(2)" style="
             margin-top:20px;
             padding:10px 15px;
             border:none;
@@ -403,57 +358,6 @@ function closeRecipe() {
         </button>
     </div>
 </div>
-
-<script>
-function openRecipe() {
-    document.getElementById("recipePopup").style.display = "flex";
-
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
-}
-
-function closeRecipe() {
-    document.getElementById("recipePopup").style.display = "none";
-
-    document.body.style.position = "";
-    document.body.style.width = "";
-    document.body.style.overflow = "";
-}
-</script>
-
-
-        <button onclick="closeRecipe()" style="
-            margin-top:20px;
-            padding:10px 15px;
-            border:none;
-            border-radius:8px;
-            background:#f44336;
-            color:white;
-            cursor:pointer;
-        ">
-            Fermer
-        </button>
-    </div>
-</div>
-
-<script>
-function openRecipe() {
-    document.getElementById("recipePopup").style.display = "flex";
-
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
-}
-
-function closeRecipe() {
-    document.getElementById("recipePopup").style.display = "none";
-
-    document.body.style.position = "";
-    document.body.style.width = "";
-    document.body.style.overflow = "";
-}
-</script>
 
             <!-- Plat 3 --> 
             <article class="recipe-card"> 
@@ -461,7 +365,7 @@ function closeRecipe() {
                 <div class="recipe-content"> 
                     <span class="nutriscore score-b">Nutri-Score B</span> 
                     <h3>Bowl de Poulet Grillé</h3> 
-                    
+                     
                     <p><strong>Ingrédients :</strong></p> 
                     <ul class="ingredients-list"> 
                         <li>Blanc de poulet mariné 120g</li> 
@@ -479,14 +383,14 @@ function closeRecipe() {
                     </ul> 
 
                      <!-- Bouton -->
-        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
-            Voir la recette entière
-        </button>
-    </div> 
-</article>
+                    <button onclick="openRecipe(3)" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+                        Voir la recette entière
+                    </button>
+                </div> 
+            </article>
 
-<!-- Popup -->
-<div id="recipePopup" style="
+<!-- Popup 3 -->
+<div id="recipePopup3" style="
     display:none;
     position:fixed;
     inset:0;
@@ -497,8 +401,7 @@ function closeRecipe() {
     justify-content:center;
     align-items:center;
 ">
-
-    <div id="popupContent" style="
+    <div id="popupContent3" style="
         background:white;
         width:85%;
         max-width:650px;
@@ -509,39 +412,19 @@ function closeRecipe() {
         border-radius:15px;
         box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
-        <h2>Buddha Bowl - Recette complète</h2>
-
+        <h2>Bowl de Poulet Grillé - Recette complète</h2>
         <h2>👩‍🍳 Étapes de préparation</h2>
-
-        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <h3>Étape 1 : Cuisson de la patate douce et du riz</h3>
         <ol>
-            <li>Rincez abondamment les 80g de quinoa.</li>
-            <li>Faites bouillir 160 ml d’eau salée.</li>
-            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
-            <li>Laissez refroidir quelques minutes.</li>
+            <li>Faites cuire le riz complet selon les instructions.</li>
+            <li>Coupez la patate douce en dés et faites-les rôtir au four.</li>
         </ol>
-
-        <h3>Étape 2 : Découpe des légumes</h3>
+        <h3>Étape 2 : Le poulet et les légumes</h3>
         <ol>
-            <li>Coupez le concombre.</li>
-            <li>Coupez les tomates cerises en deux.</li>
-            <li>Découpez l’avocat en lamelles.</li>
+            <li>Faites griller le blanc de poulet mariné à la poêle.</li>
+            <li>Faites sauter la courgette et le poivron émincés.</li>
         </ol>
-
-        <h3>Étape 3 : Pois chiches</h3>
-        <ol>
-            <li>Rincez et égouttez les pois chiches.</li>
-            <li>Option : faites-les revenir 2 min à la poêle.</li>
-        </ol>
-
-        <h3>Étape 4 : Dressage</h3>
-        <ol>
-            <li>Mettez le quinoa dans le bol.</li>
-            <li>Ajoutez légumes, avocat et pois chiches.</li>
-            <li>Ajoutez graines de courge.</li>
-        </ol>
-
-        <button onclick="closeRecipe()" style="
+        <button onclick="closeRecipe(3)" style="
             margin-top:20px;
             padding:10px 15px;
             border:none;
@@ -555,30 +438,28 @@ function closeRecipe() {
     </div>
 </div>
 
-<script>
-function openRecipe() {
-    document.getElementById("recipePopup").style.display = "flex";
-
-    document.body.style.position = "fixed";
-    document.body.style.width = "100%";
-    document.body.style.overflow = "hidden";
-}
-
-function closeRecipe() {
-    document.getElementById("recipePopup").style.display = "none";
-
-    document.body.style.position = "";
-    document.body.style.width = "";
-    document.body.style.overflow = "";
-}
-</script>
-
         </div> <!-- Fin de la grille -->
     </div> 
 
     <footer> 
         <p>&copy;2026 Mangez mieux.</p> 
     </footer> 
+
+<script>
+function openRecipe(id) {
+    document.getElementById("recipePopup" + id).style.display = "flex";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+}
+
+function closeRecipe(id) {
+    document.getElementById("recipePopup" + id).style.display = "none";
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
+}
+</script>
 
 </body> 
 </html>
