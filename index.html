@@ -296,8 +296,71 @@ function closeRecipe() {
                         <li><span>Lipides</span> <strong>17,6g</strong></li> 
                         <li><span>Glucides</span> <strong>8,8g</strong></li> 
                     </ul> 
+                    
+                     <!-- Bouton -->
+                     <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+                         Voir la recette entière
+                     </button>
                 </div> 
             </article> 
+
+            <!-- Popup -->
+<div id="recipePopup" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+">
+
+    <div style="
+        background: white;
+        width: 60%;
+        max-width: 600px;
+        padding: 30px;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    ">
+        <h2>Buddha Bowl - Recette complète</h2>
+
+        <p>
+            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
+            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
+            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
+            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
+            puis termine avec graines de courge et un filet de citron.
+        </p>
+
+        <button onclick="closeRecipe()" style="
+            margin-top: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+        ">
+            Fermer
+        </button>
+    </div>
+</div>
+
+<script>
+function openRecipe() {
+    document.getElementById("recipePopup").style.display = "block";
+}
+
+function closeRecipe() {
+    document.getElementById("recipePopup").style.display = "none";
+}
+</script>
 
             <!-- Plat 3 --> 
             <article class="recipe-card"> 
