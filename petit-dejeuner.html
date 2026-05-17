@@ -225,46 +225,68 @@
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
-    <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    <div id="popupContent" style="
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
-            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
-            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
-            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
-            puis termine avec graines de courge et un filet de citron.
-        </p>
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -273,11 +295,19 @@
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
 }
 </script>
               
@@ -314,46 +344,68 @@ function closeRecipe() {
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
-    <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    <div id="popupContent" style="
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
-            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
-            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
-            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
-            puis termine avec graines de courge et un filet de citron.
-        </p>
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -362,11 +414,19 @@ function closeRecipe() {
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
 }
 </script>
                
@@ -404,46 +464,68 @@ function closeRecipe() {
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
-    <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    <div id="popupContent" style="
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
-            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
-            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
-            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
-            puis termine avec graines de courge et un filet de citron.
-        </p>
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -452,11 +534,19 @@ function closeRecipe() {
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
 }
 </script>
                 
@@ -492,46 +582,68 @@ function closeRecipe() {
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
-    <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    <div id="popupContent" style="
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
-            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
-            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
-            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
-            puis termine avec graines de courge et un filet de citron.
-        </p>
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -540,11 +652,19 @@ function closeRecipe() {
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
 }
 </script>
                
@@ -581,46 +701,68 @@ function closeRecipe() {
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
-    <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    <div id="popupContent" style="
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
-            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
-            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
-            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
-            puis termine avec graines de courge et un filet de citron.
-        </p>
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -629,11 +771,19 @@ function closeRecipe() {
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
 }
 </script>
              
@@ -670,46 +820,68 @@ function closeRecipe() {
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
-    <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    <div id="popupContent" style="
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        -webkit-overflow-scrolling: touch;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
-            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
-            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
-            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
-            puis termine avec graines de courge et un filet de citron.
-        </p>
+        <h2>👩‍🍳 Étapes de préparation</h2>
+
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
+
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
+
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
+
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -718,11 +890,19 @@ function closeRecipe() {
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
 }
 </script>
                
