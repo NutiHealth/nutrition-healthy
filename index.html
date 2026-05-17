@@ -185,7 +185,7 @@
 
         <div class="recipe-grid"> <!-- Début de la grille -->
 
-           <!-- Plat 1 --> 
+<!-- Plat 1 --> 
 <article class="recipe-card"> 
     <div class="recipe-image" style="background-image: url('index 1.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>                 
     <div class="recipe-content"> 
@@ -209,36 +209,68 @@
             <li><span>Glucides</span> <strong>95g</strong></li> 
         </ul> 
 
-        <!-- Recette cachée -->
-        <div id="recette-buddha" style="display: none; margin-top: 15px;">
-            <p><strong>Recette complète :</strong></p>
-            <ol>
-                <li>Faire cuire le quinoa selon les instructions du paquet.</li>
-                <li>Couper l’avocat, le concombre et les tomates cerises.</li>
-                <li>Égoutter et rincer les pois chiches.</li>
-                <li>Disposer le quinoa dans un bol.</li>
-                <li>Ajouter les légumes, l’avocat et les pois chiches.</li>
-                <li>Saupoudrer de graines de courge.</li>
-                <li>Assaisonner avec huile d’olive, citron, sel et poivre.</li>
-            </ol>
-        </div>
-
         <!-- Bouton -->
-        <button onclick="toggleRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
             Voir la recette entière
         </button>
     </div> 
 </article>
 
-<script>
-function toggleRecipe() {
-    const recette = document.getElementById("recette-buddha");
+<!-- Popup -->
+<div id="recipePopup" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+">
 
-    if (recette.style.display === "none") {
-        recette.style.display = "block";
-    } else {
-        recette.style.display = "none";
-    }
+    <div style="
+        background: white;
+        width: 60%;
+        max-width: 600px;
+        padding: 30px;
+        border-radius: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    ">
+        <h2>Buddha Bowl - Recette complète</h2>
+
+        <p>
+            Fais cuire le quinoa pendant 12 minutes dans de l’eau bouillante salée.
+            Coupe l’avocat en tranches, le concombre en rondelles et les tomates en deux.
+            Égoutte les pois chiches puis assaisonne-les avec huile d’olive, paprika,
+            sel et poivre. Dispose le quinoa dans un bol, ajoute tous les ingrédients,
+            puis termine avec graines de courge et un filet de citron.
+        </p>
+
+        <button onclick="closeRecipe()" style="
+            margin-top: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #f44336;
+            color: white;
+            cursor: pointer;
+        ">
+            Fermer
+        </button>
+    </div>
+</div>
+
+<script>
+function openRecipe() {
+    document.getElementById("recipePopup").style.display = "block";
+}
+
+function closeRecipe() {
+    document.getElementById("recipePopup").style.display = "none";
 }
 </script>
 
