@@ -209,8 +209,7 @@
             <li><span>Glucides</span> <strong>95g</strong></li> 
         </ul> 
 
-        <!-- Bouton -->
-        <button onclick="openRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+        <button onclick="openRecipe()" style="margin-top:15px; padding:10px 15px; border:none; border-radius:8px; background:#4CAF50; color:white; cursor:pointer;">
             Voir la recette entière
         </button>
     </div> 
@@ -218,79 +217,68 @@
 
 <!-- Popup -->
 <div id="recipePopup" style="
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
 ">
 
     <div style="
-        background: white;
-        width: 60%;
-        max-width: 600px;
-        padding: 30px;
-        border-radius: 15px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        background:white;
+        width:85%;
+        max-width:650px;
+        max-height:80vh;
+        overflow-y:auto;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.3);
     ">
         <h2>Buddha Bowl - Recette complète</h2>
 
-        <p>
-          <h2>👩‍🍳 Étapes de préparation</h2>
+        <h2>👩‍🍳 Étapes de préparation</h2>
 
-<h3>Étape 1 : La cuisson du quinoa</h3>
-<ol>
-    <li>Rincez abondamment les 80g de quinoa dans une passoire fine à l'eau froide pour éliminer la saponine (qui peut donner un goût amer).</li>
-    <li>Dans une casserole, portez à ébullition environ 160 ml d'eau salée (le double du volume de quinoa).</li>
-    <li>Versez le quinoa, couvrez, et laissez mijoter à feu doux pendant 12 à 15 minutes, jusqu'à ce que toute l'eau soit absorbée et que le germe blanc apparaisse.</li>
-    <li>Retirez du feu et laissez refroidir quelques minutes.</li>
-</ol>
+        <h3>Étape 1 : La cuisson du quinoa</h3>
+        <ol>
+            <li>Rincez abondamment les 80g de quinoa.</li>
+            <li>Faites bouillir 160 ml d’eau salée.</li>
+            <li>Versez le quinoa et laissez cuire 12 à 15 min.</li>
+            <li>Laissez refroidir quelques minutes.</li>
+        </ol>
 
-<h3>Étape 2 : La découpe des légumes</h3>
-<ol>
-    <li>Le concombre : Lavez le quart de concombre et coupez-le en petits dés ou en fines rondelles.</li>
-    <li>Les tomates cerises : Lavez les 6 tomates cerises et coupez-les en deux.</li>
-    <li>L'avocat : Coupez l'avocat en deux, retirez le noyau, prélevez la chair à l'aide d'une cuillère et coupez-le en fines lamelles ou en cubes.</li>
-</ol>
+        <h3>Étape 2 : Découpe des légumes</h3>
+        <ol>
+            <li>Coupez le concombre.</li>
+            <li>Coupez les tomates cerises en deux.</li>
+            <li>Découpez l’avocat en lamelles.</li>
+        </ol>
 
-<h3>Étape 3 : La préparation des pois chiches</h3>
-<ol>
-    <li>Rincez et égouttez les 100g de pois chiches.</li>
-    <li>Astuce optionnelle : Vous pouvez les ajouter directement froids dans le bol, ou les faire sauter 2 minutes à la poêle avec une pincée de sel pour qu'ils soient légèrement tièdes.</li>
-</ol>
+        <h3>Étape 3 : Pois chiches</h3>
+        <ol>
+            <li>Rincez et égouttez les pois chiches.</li>
+            <li>Option : faites-les revenir 2 min à la poêle.</li>
+        </ol>
 
-<h3>Étape 4 : Le dressage</h3>
-<ol>
-    <li>Prenez un grand bol (un "bowl").</li>
-    <li>Déposez le quinoa refroidi comme base au fond du bol.</li>
-    <li>Disposez ensuite harmonieusement les autres ingrédients par petits groupes sur le dessus pour un rendu visuel parfait :
-        <ul>
-            <li>Les dés de concombre d'un côté.</li>
-            <li>Le pois chiches au centre.</li>
-            <li>Les lamelles d'avocat sur le côté.</li>
-            <li>Les demi-tomates cerises bien réparties.</li>
-        </ul>
-    </li>
-    <li>Saupoudrez le tout avec les graines de courge pour apporter le croquant.</li>
-</ol>
-
-        </p>
+        <h3>Étape 4 : Dressage</h3>
+        <ol>
+            <li>Mettez le quinoa dans le bol.</li>
+            <li>Ajoutez légumes, avocat et pois chiches.</li>
+            <li>Ajoutez graines de courge.</li>
+        </ol>
 
         <button onclick="closeRecipe()" style="
-            margin-top: 20px;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            background-color: #f44336;
-            color: white;
-            cursor: pointer;
+            margin-top:20px;
+            padding:10px 15px;
+            border:none;
+            border-radius:8px;
+            background:#f44336;
+            color:white;
+            cursor:pointer;
         ">
             Fermer
         </button>
@@ -299,11 +287,13 @@
 
 <script>
 function openRecipe() {
-    document.getElementById("recipePopup").style.display = "block";
+    document.getElementById("recipePopup").style.display = "flex";
+    document.body.style.overflow = "hidden"; 
 }
 
 function closeRecipe() {
     document.getElementById("recipePopup").style.display = "none";
+    document.body.style.overflow = "auto";
 }
 </script>
 
