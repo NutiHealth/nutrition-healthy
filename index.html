@@ -185,30 +185,62 @@
 
         <div class="recipe-grid"> <!-- Début de la grille -->
 
-            <!-- Plat 1 --> 
-            <article class="recipe-card"> 
-                <div class="recipe-image" style="background-image: url('index 1.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>                 
-                <div class="recipe-content"> 
-                    <span class="nutriscore score-a">Nutri-Score A</span> 
-                    <h3>Buddha Bowl</h3> 
+           <!-- Plat 1 --> 
+<article class="recipe-card"> 
+    <div class="recipe-image" style="background-image: url('index 1.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>                 
+    <div class="recipe-content"> 
+        <span class="nutriscore score-a">Nutri-Score A</span> 
+        <h3>Buddha Bowl</h3> 
 
-                    <p><strong>Ingrédients :</strong></p> 
-                    <ul class="ingredients-list"> 
-                        <li>80g de quinoa</li> 
-                        <li>1 avocat</li> 
-                        <li>100g de pois chiches</li> 
-                        <li>6 tomates cerises</li> 
-                        <li>1/4 de concombre</li> 
-                        <li>graines de courge</li> 
-                    </ul> 
-                    <ul class="details-list"> 
-                        <li><span>Calories</span> <strong>800kcal</strong></li> 
-                        <li><span>Protéines</span> <strong>26g</strong></li> 
-                        <li><span>Lipides</span> <strong>40g</strong></li> 
-                        <li><span>Glucides</span> <strong>95g</strong></li> 
-                    </ul> 
-                </div> 
-            </article> 
+        <p><strong>Ingrédients :</strong></p> 
+        <ul class="ingredients-list"> 
+            <li>80g de quinoa</li> 
+            <li>1 avocat</li> 
+            <li>100g de pois chiches</li> 
+            <li>6 tomates cerises</li> 
+            <li>1/4 de concombre</li> 
+            <li>graines de courge</li> 
+        </ul> 
+
+        <ul class="details-list"> 
+            <li><span>Calories</span> <strong>800kcal</strong></li> 
+            <li><span>Protéines</span> <strong>26g</strong></li> 
+            <li><span>Lipides</span> <strong>40g</strong></li> 
+            <li><span>Glucides</span> <strong>95g</strong></li> 
+        </ul> 
+
+        <!-- Recette cachée -->
+        <div id="recette-buddha" style="display: none; margin-top: 15px;">
+            <p><strong>Recette complète :</strong></p>
+            <ol>
+                <li>Faire cuire le quinoa selon les instructions du paquet.</li>
+                <li>Couper l’avocat, le concombre et les tomates cerises.</li>
+                <li>Égoutter et rincer les pois chiches.</li>
+                <li>Disposer le quinoa dans un bol.</li>
+                <li>Ajouter les légumes, l’avocat et les pois chiches.</li>
+                <li>Saupoudrer de graines de courge.</li>
+                <li>Assaisonner avec huile d’olive, citron, sel et poivre.</li>
+            </ol>
+        </div>
+
+        <!-- Bouton -->
+        <button onclick="toggleRecipe()" style="margin-top: 15px; padding: 10px 15px; border: none; border-radius: 8px; background-color: #4CAF50; color: white; cursor: pointer;">
+            Voir la recette entière
+        </button>
+    </div> 
+</article>
+
+<script>
+function toggleRecipe() {
+    const recette = document.getElementById("recette-buddha");
+
+    if (recette.style.display === "none") {
+        recette.style.display = "block";
+    } else {
+        recette.style.display = "none";
+    }
+}
+</script>
 
             <!-- Plat 2 --> 
             <article class="recipe-card"> 
